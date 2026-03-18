@@ -87,7 +87,7 @@ export const ProfessionalItem = () => {
 
           <Link
             href={item.href}
-            className="flex w-full items-center justify-center rounded-md bg-emerald-500 py-2 text-sm font-medium text-white hover:bg-emerald-400 md:text-base"
+            className="bg-primary flex w-full items-center justify-center rounded-md py-2 text-sm font-medium text-white hover:bg-orange-500 md:text-base"
           >
             Agendar horário <ArrowRight className="ml-2" />
           </Link>
