@@ -8,7 +8,7 @@ export const Header = () => {
   const session = false;
 
   return (
-    <div className="fixed top-0 right-0 left-0 z-[999] py-2">
+    <header className="fixed top-0 right-0 left-0 z-[999] py-2">
       <div className="container mx-auto flex items-center justify-between ">
         <Link href="/">
           <Image
@@ -26,6 +26,6 @@ export const Header = () => {
 
         <MobileMenu session={session} />
       </div>
-    </div>
+    </header>
   );
 };
