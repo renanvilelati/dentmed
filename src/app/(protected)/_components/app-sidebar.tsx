@@ -7,18 +7,25 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarHeader,
-} from '@/components/ui/sidebar';
 import clsx from 'clsx';
-import { Banknote, CalendarCheck, Folder, List, Settings } from 'lucide-react';
+import {
+  Banknote,
+  CalendarCheck,
+  ChevronLeft,
+  ChevronRight,
+  Folder,
+  List,
+  Settings,
+} from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { ReactNode, useState } from 'react';
 import { SidebarLink } from './sidebar-link';
+import Image from 'next/image';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 
 const LINKS = [
   {
@@ -49,6 +56,60 @@ export const AppSidebar = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="flex min-h-screen w-full">
+      <aside
+        className={clsx(
+          'bg-background flex h-full flex-col border-r p-4 transition-all duration-300',
+          {
+            'w-20': isCollapsed,
+            'w-64': !isCollapsed,
+            'hidden md:fixed md:flex': true,
+          },
+        )}
+      >
+        <div className="mt-4 mb-6">
+          {!isCollapsed && (
+            <Image
+              src={'/large-logo.svg'}
+              alt="Logo da Dentmed"
+              quality={100}
+              priority
+              width={120}
+              height={120}
+            />
+          )}
+        </div>
+
+        <Button
+          className="mb-2 self-end bg-gray-100 text-zinc-900 hover:bg-gray-50"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+        >
+          {!isCollapsed ? (
+            <ChevronLeft className="h-12 w-12" />
+          ) : (
+            <ChevronRight className="h-12 w-12" />
+          )}
+        </Button>
+
+        <nav className="flex flex-col gap-1 overflow-hidden">
+          {!isCollapsed && (
+            <span className="mt-1 text-sm font-medium text-gray-400 uppercase">
+              Painel
+            </span>
+          )}
+
+          {LINKS.map((item) => (
+            <SidebarLink
+              key={item.href}
+              href={item.href}
+              label={item.label}
+              icon={item.icon}
+              pathname={pathname}
+              isCollapsed={isCollapsed}
+            />
+          ))}
+        </nav>
+      </aside>
+
       <div
         className={clsx('flex flex-1 flex-col transition-all duration-300', {
           'md:ml-20': isCollapsed,
@@ -90,15 +151,6 @@ export const AppSidebar = ({ children }: { children: ReactNode }) => {
         </header>
 
         <main className="flex-1 py-4 md:p-6">{children}</main>
-
-        <Sidebar>
-          <SidebarHeader />
-          <SidebarContent>
-            <SidebarGroup />
-            <SidebarGroup />
-          </SidebarContent>
-          <SidebarFooter />
-        </Sidebar>
       </div>
     </div>
   );
