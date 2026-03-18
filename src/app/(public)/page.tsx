@@ -1,10 +1,11 @@
 import { HeroSession } from './_components/hero-section';
 import { Header } from '../../layout/header';
 import { ProfessionalsSection } from './_components/professionals-section';
+import { Footer } from '@/layout/footer';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
       <Header />
 
       <main>
@@ -12,6 +13,8 @@ export default function Home() {
 
         <ProfessionalsSection />
       </main>
+
+      <Footer />
     </div>
   );
 }
