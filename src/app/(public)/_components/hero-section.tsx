@@ -5,13 +5,13 @@ import dentistImage from '../../../../public/dentist.webp';
 export const HeroSession = () => {
   return (
     <section className="bg-white">
-      <div className="container mx-auto pt-20 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 pt-20 sm:px-6 lg:px-8">
         <div className="flex items-end justify-center gap-12">
-          <article className="space-y-8 max-w-2xl flex flex-col">
-            <h1 className="text-4xl lg:text-6xl font-bold text-muted-foreground">
+          <article className="flex max-w-2xl flex-col space-y-8">
+            <h1 className="text-muted-foreground text-4xl font-bold lg:text-6xl">
               Encontre os melhores profissionais em um único local!
             </h1>
-            <p className="text-base md:text-lg text-gray-500">
+            <p className="text-base text-gray-500 md:text-lg">
               Nós somos uma plataforma para profissionais da saúde com foco em
               agilizar seu atendimento de forma simplificada e organizada.
             </p>
