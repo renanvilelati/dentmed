@@ -27,17 +27,17 @@ export const MobileMenu = ({ session }: MobileMenuProps) => {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className="md:hidden" asChild>
         <Button
-          className="text-black hover:bg-transparent cursor-pointer"
+          className="cursor-pointer text-black hover:bg-transparent"
           variant={'ghost'}
           size={'icon'}
         >
-          <Menu className="w-6 h-6" />
+          <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="w-[240px] sm:w-[300px] z-[9999]">
+      <SheetContent side="right" className="z-9999 w-[240px] sm:w-[300px]">
         <SheetHeader>
-          <SheetTitle className="font-bold tex">Menu</SheetTitle>
+          <SheetTitle className="tex font-bold">Menu</SheetTitle>
         </SheetHeader>
 
         <nav className="flex flex-col px-4">
