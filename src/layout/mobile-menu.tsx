@@ -10,7 +10,7 @@ import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NavLinks } from './nav-links';
 import { useState } from 'react';
-import { LoginButton } from './login-button';
+import { LoginButton } from '../app/(public)/_components/login-button';
 
 type MobileMenuProps = {
   session: boolean;

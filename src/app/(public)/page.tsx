@@ -1,5 +1,6 @@
-import { Header } from './_components/header';
 import { HeroSession } from './_components/hero-section';
+import { Header } from '../../layout/header';
+import { ProfessionalsSection } from './_components/professionals-section';
 
 export default function Home() {
   return (
@@ -8,6 +9,8 @@ export default function Home() {
 
       <main>
         <HeroSession />
+
+        <ProfessionalsSection />
       </main>
     </div>
   );

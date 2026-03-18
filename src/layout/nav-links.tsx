@@ -14,15 +14,13 @@ type NavLinksProps = {
 
 export const NavLinks = ({ onHandleClick }: NavLinksProps) => {
   return navItems.map((item) => (
-    <>
-      <Button
-        key={item.href}
-        onClick={onHandleClick}
-        variant={'ghost'}
-        className="bg-transparent text-black"
-      >
-        <Link href={item.href}>{item.label}</Link>
-      </Button>
-    </>
+    <Button
+      key={item.href}
+      onClick={onHandleClick}
+      variant={'ghost'}
+      className="bg-transparent text-black"
+    >
+      <Link href={item.href}>{item.label}</Link>
+    </Button>
   ));
 };
