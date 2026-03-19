@@ -1,17 +1,25 @@
 import { Button } from '@/components/ui/button';
 import { LogIn } from 'lucide-react';
+import { Session } from 'next-auth';
 import Link from 'next/link';
+import { handleRegister } from '../_actions/login';
 
 type LoginBUttonProps = {
-  session: boolean;
+  session: Session | null;
+};
+
+const handleLogin = async (adapterName: string) => {
+  await handleRegister(adapterName);
 };
 
 export const LoginButton = ({ session }: LoginBUttonProps) => {
   return session ? (
     <Link href={'/dashboard'}>Dashboard</Link>
   ) : (
-    <Button className="cursor-pointer">
-      <LogIn /> Login
-    </Button>
+    <>
+      <Button className="cursor-pointer" onClick={() => handleLogin('google')}>
+        <LogIn /> Login com Google
+      </Button>
+    </>
   );
 };

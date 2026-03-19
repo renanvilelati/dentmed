@@ -1,11 +1,13 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { NavLinks } from './nav-links';
 import { LoginButton } from '../app/(public)/_components/login-button';
 import { MobileMenu } from './mobile-menu';
+import { useSession } from 'next-auth/react';
 
 export const Header = () => {
-  const session = false;
+  const { data: session, status } = useSession();
 
   return (
     <header className="fixed top-0 right-0 left-0 z-999 bg-white py-2">

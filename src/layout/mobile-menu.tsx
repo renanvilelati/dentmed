@@ -11,9 +11,10 @@ import { Button } from '@/components/ui/button';
 import { NavLinks } from './nav-links';
 import { useState } from 'react';
 import { LoginButton } from '../app/(public)/_components/login-button';
+import { Session } from 'next-auth';
 
 type MobileMenuProps = {
-  session: boolean;
+  session: Session | null;
 };
 
 export const MobileMenu = ({ session }: MobileMenuProps) => {
