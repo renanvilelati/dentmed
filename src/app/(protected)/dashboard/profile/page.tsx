@@ -1,6 +1,7 @@
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import { getUserData } from './data-access/get-user-data';
+import { getUserData } from './_data-access/get-user-data';
+import ProfileContent from './_components/profile-content';
 
 const ProfilePage = async () => {
   const session = await auth();
@@ -15,7 +16,7 @@ const ProfilePage = async () => {
     redirect('/');
   }
 
-  return <div>ProfilePage</div>;
+  return <ProfileContent user={user} />;
 };
 
 export default ProfilePage;

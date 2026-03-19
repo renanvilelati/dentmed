@@ -14,7 +14,9 @@ const handleLogin = async (adapterName: string) => {
 
 export const LoginButton = ({ session }: LoginBUttonProps) => {
   return session ? (
-    <Link href={'/dashboard'}>Dashboard</Link>
+    <Button asChild>
+      <Link href={'/dashboard'}>Dashboard</Link>
+    </Button>
   ) : (
     <>
       <Button className="cursor-pointer" onClick={() => handleLogin('google')}>
