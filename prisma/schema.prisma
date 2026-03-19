@@ -113,7 +113,7 @@ model User {
   phone              String?
   status             Boolean   @default(true)
   timeZone           String?
-  stripe_customer_id String
+  stripe_customer_id String?
   times              String[]  @default([])
 
   subscription Subscription?
