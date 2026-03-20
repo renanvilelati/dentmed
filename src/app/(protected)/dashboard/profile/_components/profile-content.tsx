@@ -32,6 +32,7 @@ import { updateProfile } from '../_actions/update-profile';
 import { toast } from 'sonner';
 import { extractPhoneNumber, formatPhone } from '@/utils/phoneFormat';
 import { timeZones } from '@/constants/timezones';
+import PageTitle from '@/layout/page-title';
 
 type ProfileContentProps = {
   user: User;
@@ -57,6 +58,7 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
 
     if (response.error) {
       toast.error(response.error);
+      return;
     }
     toast.success(response.message);
   };
@@ -65,7 +67,7 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
     <div className="mx-auto">
       <Card className="w-full sm:max-w-md">
         <CardHeader>
-          <CardTitle>Meu perfil</CardTitle>
+          <PageTitle>Meu perfil</PageTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="flex justify-center">
