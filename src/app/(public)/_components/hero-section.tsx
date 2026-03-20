@@ -9,13 +9,16 @@ export const HeroSession = () => {
         <div className="flex items-end justify-center gap-12">
           <article className="flex max-w-2xl flex-col space-y-8">
             <h1 className="text-muted-foreground text-4xl font-bold lg:text-6xl">
-              Encontre os melhores profissionais em um único local!
+              Gestão inteligente para clínicas e profissionais de saúde{' '}
             </h1>
             <p className="text-base text-gray-500 md:text-lg">
-              Nós somos uma plataforma para profissionais da saúde com foco em
-              agilizar seu atendimento de forma simplificada e organizada.
+              Conectamos pacientes a especialistas qualificados enquanto
+              ajudamos clínicas a gerenciar seus atendimentos com eficiência e
+              praticidade.
             </p>
-            <Button className="cursor-pointer">Encontre uma clínica</Button>
+            <Button className="bg-primary cursor-pointer">
+              Encontre uma clínica
+            </Button>
           </article>
 
           <div className="hidden lg:block">
