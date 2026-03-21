@@ -14,6 +14,8 @@ import { Button } from '@/components/ui/button';
 import { Edit2, Plus, Trash2 } from 'lucide-react';
 import { formatCurrency } from '@/utils/formatCurrency';
 import { formatDuration } from '@/utils/formatDuration';
+import { disableService } from '../_actions/disable-service';
+import { toast } from 'sonner';
 
 type ServiceListProps = {
   services: Service[];
@@ -21,6 +23,28 @@ type ServiceListProps = {
 
 const ServicesList = ({ services }: ServiceListProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [editingService, setEditingService] = useState<Service | null>(null);
+
+  const handleDeleteService = async (serviceId: string) => {
+    const response = await disableService({ serviceId });
+
+    if (response.error) {
+      toast(response.error);
+      return;
+    }
+
+    toast.success(response.message);
+  };
+
+  const handleUpdateService = async (service: Service) => {
+    setEditingService(service);
+    setIsOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsOpen(false);
+    setEditingService(null);
+  };
 
   return (
     <div className="flex flex-col p-4">
@@ -44,10 +68,16 @@ const ServicesList = ({ services }: ServiceListProps) => {
               <TableCell>{formatCurrency(service.price / 100)}</TableCell>
               <TableCell>{formatDuration(service.duration)}</TableCell>
               <TableCell>
-                <Button variant={'secondary'}>
+                <Button
+                  onClick={() => handleUpdateService(service)}
+                  variant={'secondary'}
+                >
                   <Edit2 />
                 </Button>
-                <Button variant={'secondary'}>
+                <Button
+                  onClick={() => handleDeleteService(service.id)}
+                  variant={'secondary'}
+                >
                   <Trash2 />
                 </Button>
               </TableCell>
@@ -55,7 +85,23 @@ const ServicesList = ({ services }: ServiceListProps) => {
           ))}
         </TableBody>
       </Table>
-      <ServiceDialog isOpen={isOpen} setIsOpen={setIsOpen} />
+      <ServiceDialog
+        isOpen={isOpen}
+        handleCloseDialog={handleCloseDialog}
+        serviceId={editingService ? editingService.id : undefined}
+        initialValues={
+          editingService
+            ? {
+                name: editingService.name,
+                price: (editingService.price / 100)
+                  .toFixed(2)
+                  .replace('.', ','),
+                hours: Math.floor(editingService.duration / 60).toString(),
+                minutes: Math.floor(editingService.duration % 60).toString(),
+              }
+            : undefined
+        }
+      />
     </div>
   );
 };
