@@ -16,40 +16,65 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { Dispatch } from 'react';
 import { Controller } from 'react-hook-form';
 import { TServiceSchema, useServiceForm } from './service.form';
 import { Label } from '@/components/ui/label';
 import { convertRealToCents } from '@/utils/convertCurrency';
 import { createService } from '../_actions/create-service';
 import { toast } from 'sonner';
+import { updateService } from '../_actions/update-service';
 
 type ServiceDialogProps = {
   isOpen: boolean;
-  setIsOpen: Dispatch<React.SetStateAction<boolean>>;
+  handleCloseDialog: () => void;
+  serviceId?: string;
+  initialValues?: {
+    name: string;
+    price: string;
+    hours: string;
+    minutes: string;
+  };
 };
 
-const ServiceDialog = ({ isOpen, setIsOpen }: ServiceDialogProps) => {
-  const form = useServiceForm();
+const ServiceDialog = ({
+  isOpen,
+  handleCloseDialog,
+  serviceId,
+  initialValues,
+}: ServiceDialogProps) => {
+  const form = useServiceForm({ initialValues: initialValues });
 
   const onSubmit = async (values: TServiceSchema) => {
     const price = convertRealToCents(values.price);
     const hours = Number(values.hours) || 0;
     const minutes = Number(values.minutes) || 0;
 
-    const response = await createService({
+    const serviceData = {
       name: values.name,
       price: price,
       duration: hours * 60 + minutes,
-    });
+    };
 
-    if (response.error) {
-      toast.error(response.error);
-      return;
+    try {
+      const response = serviceId
+        ? await updateService({
+            ...serviceData,
+            serviceId,
+          })
+        : await createService(serviceData);
+
+      if (response.error) {
+        toast.error(response.error);
+        return;
+      }
+      toast.success(response.message);
+
+      form.reset();
+      handleCloseDialog();
+    } catch (error) {
+      console.error('Erro no submit do serviço:', error);
+      toast.error('Falha ao salvar serviço');
     }
-
-    form.reset();
-    setIsOpen(false);
   };
 
   function changeCurrency(event: React.ChangeEvent<HTMLInputElement>) {
@@ -67,13 +92,8 @@ const ServiceDialog = ({ isOpen, setIsOpen }: ServiceDialogProps) => {
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleCloseDialog}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        {/* <DialogTrigger asChild>
-          <Button size={'lg'}>
-            <Plus /> Adicionar
-          </Button>
-        </DialogTrigger> */}
         <DialogContent
           style={{
             padding: '2rem',
@@ -197,7 +217,11 @@ const ServiceDialog = ({ isOpen, setIsOpen }: ServiceDialogProps) => {
               type="submit"
               disabled={form.formState.isSubmitting}
             >
-              {form.formState.isSubmitting ? 'Adicionando' : 'Adicionar'}
+              {form.formState.isSubmitting
+                ? 'Adicionando'
+                : initialValues
+                  ? 'Atualizar'
+                  : 'Adicionar'}
             </Button>
           </DialogFooter>
         </DialogContent>
