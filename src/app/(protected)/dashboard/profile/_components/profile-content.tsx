@@ -32,6 +32,7 @@ import { toast } from 'sonner';
 import { extractPhoneNumber, formatPhone } from '@/utils/phoneFormat';
 import { timeZones } from '@/constants/timezones';
 import PageTitle from '@/layout/page-title';
+import { User as UserIcon } from 'lucide-react';
 
 type ProfileContentProps = {
   user: User;
@@ -66,7 +67,12 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
     <div className="mx-auto">
       <Card className="w-full sm:max-w-md">
         <CardHeader>
-          <PageTitle>Meu perfil</PageTitle>
+          <PageTitle>
+            <div className="flex items-center gap-2">
+              <UserIcon className="h-8 w-8" />
+              Meu perfil
+            </div>
+          </PageTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="flex justify-center">

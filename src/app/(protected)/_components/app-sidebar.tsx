@@ -15,17 +15,14 @@ import {
   ChevronRight,
   Folder,
   List,
+  LogOut,
   Settings,
 } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { ReactNode, useState } from 'react';
 import { SidebarLink } from './sidebar-link';
 import Image from 'next/image';
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible';
+import { signOut, useSession } from 'next-auth/react';
 
 const LINKS = [
   {
@@ -53,6 +50,16 @@ const LINKS = [
 export const AppSidebar = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
   const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const router = useRouter();
+
+  const { update } = useSession();
+
+  const handleSignOut = async () => {
+    await signOut();
+    await update();
+    router.replace('/');
+  };
 
   return (
     <div className="flex min-h-screen w-full">
@@ -90,24 +97,29 @@ export const AppSidebar = ({ children }: { children: ReactNode }) => {
           )}
         </Button>
 
-        <nav className="flex flex-col gap-1 overflow-hidden">
-          {!isCollapsed && (
-            <span className="mt-1 text-sm font-medium text-gray-400 uppercase">
-              Painel
-            </span>
-          )}
+        <div className="flex h-full flex-col justify-between">
+          <nav className="flex flex-col gap-1 overflow-hidden">
+            {!isCollapsed && (
+              <span className="mt-1 text-sm font-medium text-gray-400 uppercase">
+                Painel
+              </span>
+            )}
 
-          {LINKS.map((item) => (
-            <SidebarLink
-              key={item.href}
-              href={item.href}
-              label={item.label}
-              icon={item.icon}
-              pathname={pathname}
-              isCollapsed={isCollapsed}
-            />
-          ))}
-        </nav>
+            {LINKS.map((item) => (
+              <SidebarLink
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                icon={item.icon}
+                pathname={pathname}
+                isCollapsed={isCollapsed}
+              />
+            ))}
+          </nav>
+          <Button onClick={handleSignOut}>
+            {!isCollapsed ? 'Sair' : <LogOut />}
+          </Button>
+        </div>
       </aside>
 
       <div
@@ -134,18 +146,24 @@ export const AppSidebar = ({ children }: { children: ReactNode }) => {
               <SheetTitle className="font-semibold">Dentmet</SheetTitle>
               <SheetDescription>Menu administrativo</SheetDescription>
 
-              <nav className="grid gap-2 pt-5 text-base">
-                {LINKS.map((item) => (
-                  <SidebarLink
-                    key={item.href}
-                    href={item.href}
-                    label={item.label}
-                    icon={item.icon}
-                    pathname={pathname}
-                    isCollapsed={isCollapsed}
-                  />
-                ))}
-              </nav>
+              <div className="flex h-full flex-col justify-between">
+                <nav className="grid gap-2 pt-5 text-base">
+                  {LINKS.map((item) => (
+                    <SidebarLink
+                      key={item.href}
+                      href={item.href}
+                      label={item.label}
+                      icon={item.icon}
+                      pathname={pathname}
+                      isCollapsed={isCollapsed}
+                    />
+                  ))}
+                </nav>
+                <Button onClick={handleSignOut}>
+                  {' '}
+                  <LogOut /> Sair
+                </Button>
+              </div>
             </SheetContent>
           </Sheet>
         </header>
