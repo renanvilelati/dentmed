@@ -3,7 +3,8 @@ import { auth } from '@/lib/auth';
 import { Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import ButtonCopy from './components/button-copy';
+import ButtonCopy from './_components/button-copy';
+import Reminders from './_components/_reminder/reminders';
 
 const DashboardPage = async () => {
   const session = await auth();
@@ -24,7 +25,10 @@ const DashboardPage = async () => {
         <ButtonCopy userId={session.user.id} />
       </div>
 
-      <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2"></section>
+      <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div>Agenda</div>
+        <Reminders userId={session.user.id} />
+      </section>
     </main>
   );
 };
