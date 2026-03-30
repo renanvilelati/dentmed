@@ -303,7 +303,11 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
           </div>
         )}
 
-        <Button type="submit" disabled={form.formState.isSubmitting}>
+        <Button
+          className="bg-orange-500 hover:bg-orange-400"
+          type="submit"
+          disabled={form.formState.isSubmitting}
+        >
           Confirmar
         </Button>
       </form>

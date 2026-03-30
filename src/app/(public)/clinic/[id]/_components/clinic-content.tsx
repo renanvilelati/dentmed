@@ -21,13 +21,18 @@ const ClinicContent = ({ clinic }: ClinicContentProps) => {
               />
             </div>
 
-            <h3 className="mb-2 text-2xl font-semibold">{clinic.name}</h3>
-            <div className="flex items-center gap-1">
+            <h3 className="mb-2 text-2xl font-semibold text-gray-500">
+              {clinic.name}
+            </h3>
+            <div className="flex items-center gap-1 text-gray-500">
               <MapPin className="h-4 w-4" />
               <span>
                 {clinic?.address ? clinic.address : 'Endereço não informado'}
               </span>
             </div>
+            <h2 className="py-4 text-2xl text-gray-500">
+              Formulário de agendamento
+            </h2>
           </article>
         </div>
 
