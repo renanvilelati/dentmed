@@ -23,12 +23,14 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { ClinicContentProps } from '../_types/clinic-type';
-import { useCallback, useEffect, useState } from 'react';
-import AppointmentTimeSlots, { TTimeSlot } from './appointment-time-slots';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import AppointmentTimeSlots from './appointment-time-slots';
+import { Label } from '@/components/ui/label';
+import { createNewAppointment } from '../actions/create-appointment';
+import { toast } from 'sonner';
 
 const AppointmentForm = ({ clinic }: ClinicContentProps) => {
   const [selectedTime, setSelectedTime] = useState('');
-  const [availableTimeSlots, setAvailableTimeSlots] = useState<TTimeSlot[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [blockedTimes, setBlockedTimes] = useState<string[]>([]);
 
@@ -48,9 +50,10 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
           `${process.env.NEXT_PUBLIC_API_URL}/api/schedule/get-appointments?userId=${clinic.id}&date=${dateString}`,
         );
 
-        return [];
-      } catch (error) {
-        console.error(error);
+        const json = await response.json();
+        return json;
+      } catch (err) {
+        console.error(err);
         return [];
       } finally {
         setLoadingSlots(false);
@@ -59,17 +62,70 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
     [clinic.id],
   );
 
-  const onSubmit = (data: TAppointmentFormData) => {
-    console.log('appointment data', data);
-  };
+  useEffect(() => {
+    if (!selectedDate) {
+      setBlockedTimes([]);
+      return;
+    }
+
+    let cancelled = false;
+
+    fetchBlockedTimes(selectedDate).then((blocked) => {
+      if (!cancelled) {
+        setBlockedTimes(blocked);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedDate, fetchBlockedTimes]);
+
+  const availableTimeSlots = useMemo(() => {
+    const times = clinic.times || [];
+
+    return times.map((time) => ({
+      time,
+      available: !blockedTimes.includes(time),
+    }));
+  }, [clinic.times, blockedTimes]);
 
   useEffect(() => {
-    if (selectedDate) {
-      fetchBlockedTimes(selectedDate).then((blocked) => {
-        console.log('hora bloqueada', blocked);
-      });
+    if (!selectedTime) return;
+
+    const stillAvailable = availableTimeSlots.some(
+      (slot) => slot.time === selectedTime && slot.available,
+    );
+
+    if (!stillAvailable) {
+      setSelectedTime('');
     }
-  }, [clinic.times, fetchBlockedTimes, selectedTime, selectedDate]);
+  }, [availableTimeSlots, selectedTime]);
+
+  const onSubmit = async (formData: TAppointmentFormData) => {
+    if (!selectedTime) {
+      return;
+    }
+
+    const response = await createNewAppointment({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      time: selectedTime,
+      date: formData.date,
+      serviceId: formData.serviceId,
+      clinicId: clinic.id,
+    });
+
+    if (response.error) {
+      toast.error(response.error);
+      return;
+    }
+
+    toast.success('Agendamento concluído');
+    form.reset();
+    setSelectedTime('');
+  };
 
   return (
     <Card className="p-4">
@@ -162,6 +218,7 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
                   onChange={(date) => {
                     if (date) {
                       field.onChange(date);
+                      setSelectedTime('');
                     }
                   }}
                 />
@@ -181,7 +238,10 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
                 <Select
                   name={field.name}
                   value={field.value}
-                  onValueChange={field.onChange}
+                  onValueChange={(value) => {
+                    field.onChange(value);
+                    setSelectedTime('');
+                  }}
                 >
                   <SelectTrigger
                     aria-invalid={fieldState.invalid}
@@ -195,7 +255,8 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
                   >
                     {clinic.services.map((item) => (
                       <SelectItem key={item.id} value={item.id}>
-                        {item.name}
+                        {item.name} - {Math.floor(item.duration / 60)}h{' '}
+                        {item.duration % 60}min
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -209,12 +270,39 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
           />
         </FieldGroup>
 
-        <AppointmentTimeSlots
-          selectedTime={selectedTime}
-          loadingSlots={loadingSlots}
-          availableTimeSlots={availableTimeSlots}
-          blockedTimes={blockedTimes}
-        />
+        {selectedServiceId && (
+          <div className="space-y-2">
+            <Label>Horários disponíveis</Label>
+            <div className="rounded-lg bg-gray-100">
+              {loadingSlots ? (
+                <p>Carregando horários...</p>
+              ) : availableTimeSlots.length === 0 ? (
+                <p>Nenhum horário disponível</p>
+              ) : (
+                <AppointmentTimeSlots
+                  onSelectTime={(time) => setSelectedTime(time)}
+                  selectedTime={selectedTime}
+                  availableTimeSlots={availableTimeSlots}
+                  blockedTimes={blockedTimes}
+                  clinicTimes={clinic.times}
+                  selectedDate={selectedDate}
+                  requiredSlots={
+                    clinic.services.find(
+                      (service) => service.id === selectedServiceId,
+                    )
+                      ? Math.ceil(
+                          clinic.services.find(
+                            (service) => service.id === selectedServiceId,
+                          )!.duration / 30,
+                        )
+                      : 1
+                  }
+                />
+              )}
+            </div>
+          </div>
+        )}
+
         <Button type="submit" disabled={form.formState.isSubmitting}>
           Confirmar
         </Button>

@@ -8,19 +8,11 @@ import { ClinicContentProps } from '../_types/clinic-type';
 const ClinicContent = ({ clinic }: ClinicContentProps) => {
   return (
     <div className="flex min-h-screen flex-col">
-      <div style={{ height: '200px' }} className="h-32 bg-orange-500">
-        {' '}
-      </div>
-      <section
-        style={{ marginTop: '-4rem' }}
-        className="container mx-auto -mt-16 px-4"
-      >
+      <div className="h-40 bg-orange-500"> </div>
+      <section className="container mx-auto -mt-24 space-y-4 px-4">
         <div className="mx-auto max-w-2xl">
           <article className="flex flex-col items-center">
-            <div
-              style={{ height: '200px', width: '200px' }}
-              className="relative overflow-hidden rounded-full border-4 border-white"
-            >
+            <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-white">
               <Image
                 src={clinic?.image ? clinic.image : '/doctor_1.webp'}
                 alt="teste"

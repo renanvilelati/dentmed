@@ -61,7 +61,7 @@ export async function GET(request: NextRequest) {
 
       if (startIndex !== -1) {
         for (let i = 0; i < requiredSlots; i++) {
-          const blockedSlot = user.times[startIndex + 1];
+          const blockedSlot = user.times[startIndex + i];
           if (blockedSlot) {
             blockedSlots.add(blockedSlot);
           }
@@ -71,11 +71,9 @@ export async function GET(request: NextRequest) {
 
     const blockedtimes = Array.from(blockedSlots);
 
-    console.log('blockedtimes: ', blockedtimes);
-
     return NextResponse.json(blockedtimes);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return NextResponse.json(
       {
         error: 'Nenhum agendamento encotnrado',
