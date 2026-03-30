@@ -33,7 +33,7 @@ const AppointmentTimeSlots = ({
   const dateIsToday = isToday(selectedDate);
 
   return (
-    <div className="grid grid-cols-3 gap-2 md:grid-cols-5">
+    <div className="grid grid-cols-3 gap-2 p-4 md:grid-cols-5">
       {availableTimeSlots.map((slot) => {
         const sequenceOK = isSlotSequenceAvailable(
           slot.time,
@@ -54,8 +54,7 @@ const AppointmentTimeSlots = ({
             key={slot.time}
             className={cn(
               'h-10 select-none',
-              selectedTime === slot.time &&
-                'text-primary border-2 border-emerald-500',
+              selectedTime === slot.time && 'border-2 bg-orange-500 text-white',
               !slotEnabled && 'cursor-not-allowed opacity-50',
             )}
             disabled={!slotEnabled}
