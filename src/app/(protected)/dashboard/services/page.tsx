@@ -5,8 +5,6 @@ import ServicesContent from './_components/services-content';
 const Services = async () => {
   const session = await auth();
 
-  console.log(session, 'session');
-
   if (!session) {
     redirect('/');
   }

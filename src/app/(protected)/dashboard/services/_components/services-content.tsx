@@ -4,6 +4,7 @@ import { getServices } from '../_data-access/get-services';
 import ServicesList from './services-list';
 import PageTitle from '@/layout/page-title';
 import { Folder } from 'lucide-react';
+import PageContainer from '@/layout/page-container';
 
 type ServicesContentProps = {
   user: User;
@@ -12,8 +13,8 @@ type ServicesContentProps = {
 const ServicesContent = async ({ user }: ServicesContentProps) => {
   const services = await getServices(user.id);
   return (
-    <div className="mx-auto">
-      <Card className="w-full sm:max-w-md">
+    <PageContainer>
+      <Card className="w-full">
         <CardHeader>
           <PageTitle>
             <div className="flex items-center gap-2">
@@ -23,7 +24,7 @@ const ServicesContent = async ({ user }: ServicesContentProps) => {
         </CardHeader>
         <ServicesList services={services.data || []} />
       </Card>
-    </div>
+    </PageContainer>
   );
 };
 

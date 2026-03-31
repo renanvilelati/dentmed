@@ -33,6 +33,7 @@ import { extractPhoneNumber, formatPhone } from '@/utils/phoneFormat';
 import { timeZones } from '@/constants/timezones';
 import PageTitle from '@/layout/page-title';
 import { User as UserIcon } from 'lucide-react';
+import PageContainer from '@/layout/page-container';
 
 type ProfileContentProps = {
   user: User;
@@ -64,8 +65,8 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
   };
 
   return (
-    <div className="mx-auto">
-      <Card className="w-full sm:max-w-md">
+    <PageContainer>
+      <Card className="w-full">
         <CardHeader>
           <PageTitle>
             <div className="flex items-center gap-2">
@@ -270,7 +271,7 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
           </Field>
         </CardFooter>
       </Card>
-    </div>
+    </PageContainer>
   );
 };
 
