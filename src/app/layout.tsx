@@ -4,6 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import SessionAuthProvider from '@/components/session-auth';
 import { Toaster } from 'sonner';
+import { QueryClientContext } from '@/providers/query-client';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -32,7 +33,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SessionAuthProvider>{children}</SessionAuthProvider>
+        <SessionAuthProvider>
+          <QueryClientContext>{children}</QueryClientContext>
+        </SessionAuthProvider>
         <Toaster richColors />
       </body>
     </html>
