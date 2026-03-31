@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import ButtonCopy from './_components/button-copy';
 import Reminders from './_components/_reminder/reminders';
+import Appointments from './_components/_appointments/appointments';
+import PageContainer from '@/layout/page-container';
 
 const DashboardPage = async () => {
   const session = await auth();
@@ -14,22 +16,24 @@ const DashboardPage = async () => {
   }
 
   return (
-    <main>
-      <div className="flex items-center justify-end space-x-2">
-        <Link href={`/clinic/${session.user.id}`} target="_blank">
-          <Button className="flex-1 bg-orange-500 hover:bg-orange-400 md:flex-0">
-            <Calendar className="h-5 w-5" />
-            <span>Novo agendamento</span>
-          </Button>
-        </Link>
-        <ButtonCopy userId={session.user.id} />
-      </div>
+    <PageContainer>
+      <main>
+        <div className="flex items-center justify-end space-x-2">
+          <Link href={`/clinic/${session.user.id}`} target="_blank">
+            <Button className="flex-1 bg-orange-500 hover:bg-orange-400 md:flex-0">
+              <Calendar className="h-5 w-5" />
+              <span>Novo agendamento</span>
+            </Button>
+          </Link>
+          <ButtonCopy userId={session.user.id} />
+        </div>
 
-      <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div>Agenda</div>
-        <Reminders userId={session.user.id} />
-      </section>
-    </main>
+        <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <Appointments userId={session.user.id} />
+          <Reminders userId={session.user.id} />
+        </section>
+      </main>
+    </PageContainer>
   );
 };
 
