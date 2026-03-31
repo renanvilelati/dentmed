@@ -1,12 +1,11 @@
 'use client';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Plus } from 'lucide-react';
 import { Reminder } from '../../../../../../prisma/src/generated/prisma/client';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import DeleteReminderButton from './delete-reminder-button';
 import ReminderDialog from './reminder-dialog';
 import { useState } from 'react';
+import AddPlusButton from '../add-plus-button';
 
 type ReminderListProps = {
   reminder: Reminder[];
@@ -14,6 +13,7 @@ type ReminderListProps = {
 
 const ReminderList = ({ reminder }: ReminderListProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <Card>
@@ -21,13 +21,7 @@ const ReminderList = ({ reminder }: ReminderListProps) => {
           <CardTitle className="text-xl text-gray-700 md:text-2xl">
             Lembretes
           </CardTitle>
-          <Button
-            variant={'ghost'}
-            className="w-9 p-0"
-            onClick={() => setIsOpen(true)}
-          >
-            <Plus className="h-5 w-5" />
-          </Button>
+          <AddPlusButton onCLick={() => setIsOpen(true)} />
         </CardHeader>
 
         <CardContent>
