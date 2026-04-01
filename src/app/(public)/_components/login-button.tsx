@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
-import { LogIn } from 'lucide-react';
 import { Session } from 'next-auth';
 import Link from 'next/link';
 import { handleRegister } from '../_actions/login';
+import Image from 'next/image';
 
 type LoginBUttonProps = {
   session: Session | null;
@@ -19,8 +19,14 @@ export const LoginButton = ({ session }: LoginBUttonProps) => {
     </Button>
   ) : (
     <>
-      <Button className="cursor-pointer" onClick={() => handleLogin('google')}>
-        <LogIn /> Login com Google
+      <Button variant="outline" onClick={() => handleLogin('google')}>
+        <Image
+          src={'/google.png'}
+          alt="Logo do Google"
+          width={20}
+          height={20}
+        />
+        Login com Google
       </Button>
     </>
   );
