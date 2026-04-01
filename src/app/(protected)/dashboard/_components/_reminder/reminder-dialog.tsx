@@ -76,7 +76,7 @@ const ReminderDialog = ({ isOpen, setIsOpen }: TReminderFormProps) => {
             />
           </FieldGroup>
           <Button
-            className="bg-orange-500 hover:bg-orange-400"
+            className="bg-red-400 hover:bg-red-500"
             disabled={form.formState.isSubmitting || !form.watch('description')}
           >
             Salvar

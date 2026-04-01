@@ -304,7 +304,7 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
         )}
 
         <Button
-          className="bg-orange-500 hover:bg-orange-400"
+          className="bg-red-400 hover:bg-red-500"
           type="submit"
           disabled={form.formState.isSubmitting}
         >

@@ -24,7 +24,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
-import imgTest from '../../../../../../public/doctor_1.webp';
+import imgTest from '../../../../../../public/default_user.svg';
 import TimesDialog from './times-dialog';
 import { User } from '../../../../../../prisma/src/generated/prisma/client';
 import { updateProfile } from '../_actions/update-profile';
@@ -265,7 +265,11 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
         </CardContent>
         <CardFooter>
           <Field>
-            <Button type="submit" form="form-rhf-demo">
+            <Button
+              type="submit"
+              form="form-rhf-demo"
+              className="bg-red-400 hover:bg-red-500"
+            >
               Salvar alterações
             </Button>
           </Field>

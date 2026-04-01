@@ -48,7 +48,11 @@ const ServicesList = ({ services }: ServiceListProps) => {
 
   return (
     <div className="flex flex-col p-4">
-      <Button size={'lg'} className="self-end" onClick={() => setIsOpen(true)}>
+      <Button
+        size={'lg'}
+        className="self-end bg-red-400 hover:bg-red-500"
+        onClick={() => setIsOpen(true)}
+      >
         <Plus /> Adicionar
       </Button>
 

@@ -17,7 +17,7 @@ export const ProfessionalItem = ({ professionals }: ProfessionalItemProps) => {
       <CardContent className="p-0">
         <div className="relative h-48">
           <Image
-            src={item.image ?? ''}
+            src={item.image ?? '/default_user.svg'}
             alt="Foto do médico ou clínica"
             fill
             className="object-cover object-top"
@@ -36,7 +36,7 @@ export const ProfessionalItem = ({ professionals }: ProfessionalItemProps) => {
 
           <Link
             href={`${process.env.NEXT_PUBLIC_API_URL}/clinic/${item.id}`}
-            className="bg-primary flex w-full items-center justify-center rounded-md py-2 text-sm font-medium text-white hover:bg-orange-500 md:text-base"
+            className="flex w-full items-center justify-center rounded-md bg-red-400 py-2 text-sm font-medium text-white hover:bg-red-500 md:text-base"
           >
             Agendar horário <ArrowRight className="ml-2" />
           </Link>

@@ -23,7 +23,7 @@ export const SidebarLink = ({
         className={clsx(
           'flex items-center gap-2 rounded-md p-2 transition-colors',
           {
-            'bg-orange-500 text-white': pathname === href,
+            'bg-red-400 text-white': pathname === href,
             'text-gray-700 hover:bg-gray-100': pathname !== href,
           },
         )}

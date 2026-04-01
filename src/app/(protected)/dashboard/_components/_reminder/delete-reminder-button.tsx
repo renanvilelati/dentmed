@@ -23,7 +23,7 @@ const DeleteReminderButton = ({ reminderId }: DeleteReminderButtonProps) => {
 
   return (
     <Button
-      className="shadow-none hover:bg-orange-400"
+      className="shadow-none hover:bg-red-500"
       onClick={handleDeleteReminder}
     >
       <Trash />

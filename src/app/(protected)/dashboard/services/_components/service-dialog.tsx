@@ -213,7 +213,7 @@ const ServiceDialog = ({
               </Button>
             </DialogClose>
             <Button
-              className="flex-1"
+              className="flex-1 bg-red-400 hover:bg-red-500"
               type="submit"
               disabled={form.formState.isSubmitting}
             >

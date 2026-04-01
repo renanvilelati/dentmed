@@ -54,7 +54,7 @@ const AppointmentTimeSlots = ({
             key={slot.time}
             className={cn(
               'h-10 select-none',
-              selectedTime === slot.time && 'border-2 bg-orange-500 text-white',
+              selectedTime === slot.time && 'border-2 bg-red-400 text-white',
               !slotEnabled && 'cursor-not-allowed opacity-50',
             )}
             disabled={!slotEnabled}

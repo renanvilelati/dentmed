@@ -116,7 +116,10 @@ export const AppSidebar = ({ children }: { children: ReactNode }) => {
               />
             ))}
           </nav>
-          <Button onClick={handleSignOut}>
+          <Button
+            className="bg-red-400 hover:bg-red-500"
+            onClick={handleSignOut}
+          >
             {!isCollapsed ? 'Sair' : <LogOut />}
           </Button>
         </div>
