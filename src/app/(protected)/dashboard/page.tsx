@@ -7,6 +7,8 @@ import ButtonCopy from './_components/button-copy';
 import Reminders from './_components/_reminder/reminders';
 import Appointments from './_components/_appointments/appointments';
 import PageContainer from '@/layout/page-container';
+import { Suspense } from 'react';
+import { SkeletonCard } from '@/layout/skeleton-card';
 
 const DashboardPage = async () => {
   const session = await auth();
@@ -29,8 +31,12 @@ const DashboardPage = async () => {
         </div>
 
         <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <Appointments userId={session.user.id} />
-          <Reminders userId={session.user.id} />
+          <Suspense fallback={<SkeletonCard />}>
+            <Appointments userId={session.user.id} />
+          </Suspense>
+          <Suspense fallback={<SkeletonCard />}>
+            <Reminders userId={session.user.id} />
+          </Suspense>
         </section>
       </main>
     </PageContainer>

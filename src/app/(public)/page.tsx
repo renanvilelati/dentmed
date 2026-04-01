@@ -3,6 +3,8 @@ import { Header } from '../../layout/header';
 import { ProfessionalsSection } from './_components/professionals-section';
 import { Footer } from '@/layout/footer';
 
+export const revalidate = 120;
+
 export default async function Home() {
   return (
     <div className="flex min-h-screen flex-col">
