@@ -7,7 +7,6 @@ import {
 import { TAppointmentWIthService } from './appointment-list';
 import { formatCurrency } from '@/utils/formatCurrency';
 import { formatDuration } from '@/utils/formatDuration';
-import { format } from 'date-fns';
 import { Separator } from '@/components/ui/separator';
 
 type DialogAppointmentProps = {
@@ -37,7 +36,12 @@ const DialogAppointment = ({ appointment }: DialogAppointmentProps) => {
               </p>
               <p>
                 <span className="font-semibold">Data</span>:{' '}
-                {format(appointment.appointmentDate, 'dd/MM/yyyy')}
+                {new Intl.DateTimeFormat('pt-BR', {
+                  timeZone: 'UTC',
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit',
+                }).format(new Date(appointment.appointmentDate))}
               </p>
               <p>
                 <span className="font-semibold">Preço</span>:{' '}
