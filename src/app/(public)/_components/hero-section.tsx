@@ -16,7 +16,7 @@ export const HeroSession = () => {
               ajudamos clínicas a gerenciar seus atendimentos com eficiência e
               praticidade.
             </p>
-            <Button className="bg-primary cursor-pointer">
+            <Button className="bg-primary cursor-pointer hover:bg-orange-500">
               Encontre uma clínica
             </Button>
           </article>

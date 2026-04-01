@@ -2,74 +2,23 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { User } from '../../../../prisma/src/generated/prisma/client';
 
-const doctors = [
-  {
-    id: 1,
-    name: 'Renan Vilela',
-    image: '/doctor_1.webp',
-    address: 'Av. Capeão, 105',
-    href: '/renan-clinic',
-  },
-  {
-    id: 2,
-    name: 'Carla Soares',
-    image: '/doctor_3.webp',
-    address: 'Av. Capeão, 105',
-    href: '/renan-clinic',
-  },
-  {
-    id: 3,
-    name: 'Vinicius Abreu',
-    image: '/doctor_2.webp',
-    address: 'Av. Capeão, 105',
-    href: '/renan-clinic',
-  },
-  {
-    id: 4,
-    name: 'Aline Moraes',
-    image: '/doctor_3.webp',
-    address: 'Av. Capeão, 105',
-    href: '/renan-clinic',
-  },
-  {
-    id: 5,
-    name: 'Cesar Menotti',
-    image: '/doctor_1.webp',
-    address: 'Av. Capeão, 105',
-    href: '/renan-clinic',
-  },
-  {
-    id: 6,
-    name: 'Rodrigo Carvalho',
-    image: '/doctor_2.webp',
-    address: 'Av. Capeão, 105',
-    href: '/renan-clinic',
-  },
-  {
-    id: 7,
-    name: 'Renan Vilela',
-    image: '/doctor_3.webp',
-    address: 'Av. Capeão, 105',
-    href: '/renan-clinic',
-  },
-  {
-    id: 8,
-    name: 'Renan Vilela',
-    image: '/doctor_1.webp',
-    address: 'Av. Capeão, 105',
-    href: '/renan-clinic',
-  },
-];
+type ProfessionalItemProps = {
+  professionals: User[];
+};
 
-export const ProfessionalItem = () => {
-  return doctors.map((item) => (
-    <Card key={item.id} className="overflow-hidden p-0">
+export const ProfessionalItem = ({ professionals }: ProfessionalItemProps) => {
+  return professionals.map((item) => (
+    <Card
+      key={item.id}
+      className="overflow-hidden p-0 duration-300 hover:shadow-lg"
+    >
       <CardContent className="p-0">
         <div className="relative h-48">
           <Image
-            src={item.image}
-            alt="Foto do médico"
+            src={item.image ?? ''}
+            alt="Foto do médico ou clínica"
             fill
             className="object-cover object-top"
           />
@@ -86,7 +35,7 @@ export const ProfessionalItem = () => {
           </div>
 
           <Link
-            href={item.href}
+            href={`${process.env.NEXT_PUBLIC_API_URL}/clinic/${item.id}`}
             className="bg-primary flex w-full items-center justify-center rounded-md py-2 text-sm font-medium text-white hover:bg-orange-500 md:text-base"
           >
             Agendar horário <ArrowRight className="ml-2" />

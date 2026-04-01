@@ -7,7 +7,7 @@ import { toast } from 'sonner';
 const ButtonCopy = ({ userId }: { userId: string }) => {
   const handleCopyLink = async () => {
     await navigator.clipboard.writeText(
-      `${process.env.NEXT_PUBLIC_API_URL}/clinic/${userId}`,
+      `${process.env.NEXT_PUBLIC_URL}/clinic/${userId}`,
     );
 
     toast.success('Link da clínica copiado');

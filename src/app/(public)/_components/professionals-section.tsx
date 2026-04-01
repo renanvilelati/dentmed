@@ -1,6 +1,9 @@
+import { getProfessionals } from '../data-access/get-professionals';
 import { ProfessionalItem } from './professional-item';
 
-export const ProfessionalsSection = () => {
+export const ProfessionalsSection = async () => {
+  const professionals = await getProfessionals();
+
   return (
     <section className="bg-gray-50 py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,7 +12,7 @@ export const ProfessionalsSection = () => {
         </h2>
 
         <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <ProfessionalItem />
+          <ProfessionalItem professionals={professionals} />
         </section>
       </div>
     </section>

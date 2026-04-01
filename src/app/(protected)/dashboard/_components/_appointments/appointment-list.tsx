@@ -44,7 +44,7 @@ const AppointmentList = ({ times }: AppointmentListProps) => {
         activeDate = today;
       }
 
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/clinic/appointments?date=${activeDate}`;
+      const url = `${process.env.NEXT_PUBLIC_URL}/api/clinic/appointments?date=${activeDate}`;
 
       const response = await fetch(url);
       const json = (await response.json()) as TAppointmentWIthService[];

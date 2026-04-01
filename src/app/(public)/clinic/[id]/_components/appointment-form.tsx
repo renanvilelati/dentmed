@@ -47,7 +47,7 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
       try {
         const dateString = date.toISOString().split('T')[0];
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/schedule/get-appointments?userId=${clinic.id}&date=${dateString}`,
+          `${process.env.NEXT_PUBLIC_URL}/api/schedule/get-appointments?userId=${clinic.id}&date=${dateString}`,
         );
 
         const json = await response.json();
