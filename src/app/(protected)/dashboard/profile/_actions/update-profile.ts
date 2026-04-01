@@ -43,7 +43,7 @@ export const updateProfile = async (formData: TProfileFormData) => {
       message: 'Clínica atualizada com sucesso!',
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return {
       error: 'Falha ao atualizar clínica',
     };

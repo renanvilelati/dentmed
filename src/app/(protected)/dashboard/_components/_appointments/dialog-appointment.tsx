@@ -15,8 +15,6 @@ type DialogAppointmentProps = {
 };
 
 const DialogAppointment = ({ appointment }: DialogAppointmentProps) => {
-  console.log(appointment);
-
   return (
     <DialogContent className="gap-2">
       <DialogHeader>

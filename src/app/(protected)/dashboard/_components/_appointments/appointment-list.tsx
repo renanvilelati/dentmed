@@ -2,8 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { useSearchParams, useRouter } from 'next/navigation';
-import AddPlusButton from '../add-plus-button';
+import { useSearchParams } from 'next/navigation';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import { Prisma } from '../../../../../../prisma/src/generated/prisma/client';
@@ -14,6 +13,7 @@ import { toast } from 'sonner';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { useState } from 'react';
 import DialogAppointment from './dialog-appointment';
+import DateButton from './date-picker-button';
 
 export type TAppointmentWIthService = Prisma.AppointmentGetPayload<{
   include: {
@@ -34,8 +34,6 @@ const AppointmentList = ({ times }: AppointmentListProps) => {
 
   const date = searchParams.get('date');
 
-  const router = useRouter();
-
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['get-appointments', date],
     queryFn: async () => {
@@ -50,7 +48,6 @@ const AppointmentList = ({ times }: AppointmentListProps) => {
 
       const response = await fetch(url);
       const json = (await response.json()) as TAppointmentWIthService[];
-      console.log(json);
 
       if (!response.ok) {
         return [];
@@ -82,10 +79,6 @@ const AppointmentList = ({ times }: AppointmentListProps) => {
     }
   }
 
-  const handleClick = () => {
-    console.log('clicou');
-  };
-
   const handleCancelAppointment = async (appointmentId: string) => {
     const response = await cancelAppointment({ appointmentId });
 
@@ -106,7 +99,8 @@ const AppointmentList = ({ times }: AppointmentListProps) => {
           <CardTitle className="text-xl text-gray-500 md:text-2xl">
             Agendamentos
           </CardTitle>
-          <AddPlusButton onCLick={handleClick} />
+
+          <DateButton />
         </CardHeader>
 
         <CardContent>

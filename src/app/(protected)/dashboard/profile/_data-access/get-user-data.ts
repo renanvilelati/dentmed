@@ -25,7 +25,6 @@ export const getUserData = async ({ userId }: TGetUserData) => {
       return null;
     }
 
-    console.log(user);
     return user;
   } catch (err) {
     console.error(err);
