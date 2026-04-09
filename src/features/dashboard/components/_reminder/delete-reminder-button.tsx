@@ -2,7 +2,7 @@
 
 import { Button } from '@/shared/components/ui/button';
 import { Trash } from 'lucide-react';
-import { deleteReminder } from '../../_actions/delete-reminder';
+import { deleteReminder } from '../../actions/delete-reminder';
 import { toast } from 'sonner';
 
 type DeleteReminderButtonProps = {

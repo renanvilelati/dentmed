@@ -1,6 +1,6 @@
 'use client';
 import { Controller, useForm } from 'react-hook-form';
-import { profileSchema, TProfileFormData } from '../_schemas/profile-form';
+import { profileSchema, TProfileFormData } from '../schemas/profile-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Card,
@@ -24,16 +24,16 @@ import {
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import Image from 'next/image';
-import imgTest from '../../../../../../public/default_user.svg';
+import imgTest from '@root/public/default_user.svg';
 import TimesDialog from './times-dialog';
 import { User } from '@root/prisma/src/generated/prisma/client';
-import { updateProfile } from '../_actions/update-profile';
+import { updateProfile } from '../actions/update-profile';
 import { toast } from 'sonner';
 import { extractPhoneNumber, formatPhone } from '@/shared/utils/phoneFormat';
 import { timeZones } from '@/shared/constants/timezones';
-import PageTitle from '@/shared/layout/page-title';
+import PageTitle from '@/shared/components/protected/page-title';
 import { User as UserIcon } from 'lucide-react';
-import PageContainer from '@/shared/layout/page-container';
+import PageContainer from '@/shared/layout/protected/page-container';
 
 type ProfileContentProps = {
   user: User;

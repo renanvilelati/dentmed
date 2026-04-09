@@ -13,7 +13,7 @@ import { format } from 'date-fns';
 import { Prisma } from '@root/prisma/src/generated/prisma/client';
 import { Eye, X } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
-import { cancelAppointment } from '../../_actions/cancel-appointment';
+import { cancelAppointment } from '../../actions/cancel-appointment';
 import { toast } from 'sonner';
 import { Dialog, DialogTrigger } from '@/shared/components/ui/dialog';
 import { useState } from 'react';

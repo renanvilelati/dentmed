@@ -2,7 +2,7 @@
 
 import { auth } from '@/shared/lib/auth';
 import { prisma } from '@/shared/lib/prisma';
-import { profileSchema, TProfileFormData } from '../_schemas/profile-form';
+import { profileSchema, TProfileFormData } from '../schemas/profile-form';
 import { revalidatePath } from 'next/cache';
 
 export const updateProfile = async (formData: TProfileFormData) => {

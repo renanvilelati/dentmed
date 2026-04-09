@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { LoginButton } from '@/features/home/components/login-button';
 
 export const Header = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <header className="fixed top-0 right-0 left-0 z-999 bg-white py-2">

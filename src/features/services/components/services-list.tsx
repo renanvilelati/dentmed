@@ -14,7 +14,7 @@ import { Button } from '@/shared/components/ui/button';
 import { Edit2, Plus, Trash2 } from 'lucide-react';
 import { formatCurrency } from '@/shared/utils/formatCurrency';
 import { formatDuration } from '@/shared/utils/formatDuration';
-import { disableService } from '../_actions/disable-service';
+import { disableService } from '../actions/disable-service';
 import { toast } from 'sonner';
 
 type ServiceListProps = {

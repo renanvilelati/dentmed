@@ -11,10 +11,10 @@ import clsx from 'clsx';
 import { ChevronLeft, ChevronRight, List, LogOut } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import { ReactNode, useState } from 'react';
-import { SidebarLink } from './sidebar-link';
+import { SidebarLink } from './app-sidebar-link';
 import Image from 'next/image';
 import { signOut, useSession } from 'next-auth/react';
-import { LINKS } from '../_constants/nav-links';
+import { LINKS } from '@/shared/constants/nav-links';
 
 export const AppSidebar = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();

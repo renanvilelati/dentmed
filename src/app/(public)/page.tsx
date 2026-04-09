@@ -1,7 +1,7 @@
 import { ProfessionalsSection } from '@/features/home/components/professionals-section';
 import { HeroSession } from '@/features/home/components/hero-section';
-import { Header } from '@/shared/layout/header';
-import { Footer } from '@/shared/layout/footer';
+import { Header } from '@/shared/layout/public/header';
+import { Footer } from '@/shared/layout/public/footer';
 
 export const revalidate = 120;
 

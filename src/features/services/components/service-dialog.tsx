@@ -20,9 +20,9 @@ import { Controller } from 'react-hook-form';
 import { TServiceSchema, useServiceForm } from './service.form';
 import { Label } from '@/shared/components/ui/label';
 import { convertRealToCents } from '@/shared/utils/convertCurrency';
-import { createService } from '../_actions/create-service';
+import { createService } from '../actions/create-service';
 import { toast } from 'sonner';
-import { updateService } from '../_actions/update-service';
+import { updateService } from '../actions/update-service';
 
 type ServiceDialogProps = {
   isOpen: boolean;

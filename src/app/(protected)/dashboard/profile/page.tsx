@@ -1,7 +1,7 @@
 import { auth } from '@/shared/lib/auth';
 import { redirect } from 'next/navigation';
-import { getUserData } from './_data-access/get-user-data';
-import ProfileContent from './_components/profile-content';
+import { getUserData } from '@/features/profile/data-access/get-user-data';
+import ProfileContent from '@/features/profile/components/profile-content';
 
 const ProfilePage = async () => {
   const session = await auth();
