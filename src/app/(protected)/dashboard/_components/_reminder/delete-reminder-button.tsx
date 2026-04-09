@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Trash } from 'lucide-react';
-import { deleteReminder } from '../../actions/delete-reminder';
+import { deleteReminder } from '../../_actions/delete-reminder';
 import { toast } from 'sonner';
 
 type DeleteReminderButtonProps = {
@@ -23,7 +23,7 @@ const DeleteReminderButton = ({ reminderId }: DeleteReminderButtonProps) => {
 
   return (
     <Button
-      className="shadow-none hover:bg-red-500"
+      className="bg-red-400 shadow-none hover:bg-red-500"
       onClick={handleDeleteReminder}
     >
       <Trash />

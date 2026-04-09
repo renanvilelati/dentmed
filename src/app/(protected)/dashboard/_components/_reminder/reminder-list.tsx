@@ -30,7 +30,7 @@ const ReminderList = ({ reminder }: ReminderListProps) => {
               reminder.map((item) => (
                 <article
                   key={item.id}
-                  className="mb-2 flex flex-wrap items-center justify-between rounded-md bg-orange-100/70 px-2 py-2"
+                  className="mb-2 flex flex-wrap items-center justify-between rounded-md bg-red-100/50 px-2 py-2"
                 >
                   <p>{item.description}</p>
                   <DeleteReminderButton reminderId={item.id} />
