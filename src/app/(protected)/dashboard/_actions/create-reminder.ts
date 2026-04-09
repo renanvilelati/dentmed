@@ -1,7 +1,7 @@
 'use server';
 
-import { auth } from '@/lib/auth';
-import { prisma } from '@/lib/prisma';
+import { auth } from '@/shared/lib/auth';
+import { prisma } from '@/shared/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import z from 'zod';
 

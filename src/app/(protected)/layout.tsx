@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { AppSidebar } from './_components/app-sidebar';
-import { SidebarProvider } from '@/components/ui/sidebar';
+import { SidebarProvider } from '@/shared/components/ui/sidebar';
 
 const ProtectedLayout = ({ children }: { children: ReactNode }) => {
   return (

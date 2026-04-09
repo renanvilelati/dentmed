@@ -1,7 +1,12 @@
 'use client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/shared/components/ui/card';
 import { Reminder } from '../../../../../../prisma/src/generated/prisma/client';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { ScrollArea } from '@/shared/components/ui/scroll-area';
 import DeleteReminderButton from './delete-reminder-button';
 import ReminderDialog from './reminder-dialog';
 import { useState } from 'react';

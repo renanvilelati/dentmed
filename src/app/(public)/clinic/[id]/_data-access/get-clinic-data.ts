@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/shared/lib/prisma';
 import { Prisma } from '../../../../../../prisma/src/generated/prisma/client';
 
 type UserWithServiceAndSubscription = Prisma.UserGetPayload<{

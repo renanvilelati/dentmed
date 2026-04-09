@@ -6,17 +6,17 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
+} from '@/shared/components/ui/dialog';
 import { TReminderSchema, useReminderForm } from './reminder-form';
 import {
   Field,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from '@/components/ui/field';
+} from '@/shared/components/ui/field';
 import { Controller } from 'react-hook-form';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/shared/components/ui/button';
+import { Textarea } from '@/shared/components/ui/textarea';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { createReminder } from '../../_actions/create-reminder';
 import { toast } from 'sonner';

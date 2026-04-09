@@ -3,11 +3,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from '@/components/ui/dialog';
+} from '@/shared/components/ui/dialog';
 import { TAppointmentWIthService } from './appointment-list';
-import { formatCurrency } from '@/utils/formatCurrency';
-import { formatDuration } from '@/utils/formatDuration';
-import { Separator } from '@/components/ui/separator';
+import { formatCurrency } from '@/shared/utils/formatCurrency';
+import { formatDuration } from '@/shared/utils/formatDuration';
+import { Separator } from '@/shared/components/ui/separator';
 
 type DialogAppointmentProps = {
   appointment: TAppointmentWIthService | null;

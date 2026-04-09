@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/ui/button';
 import Image from 'next/image';
 import dentistImage from '../../../../public/dentist.webp';
 

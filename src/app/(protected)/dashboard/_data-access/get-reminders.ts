@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/shared/lib/prisma';
 
 export const getReminders = async ({ userId }: { userId: string }) => {
   if (!userId) {

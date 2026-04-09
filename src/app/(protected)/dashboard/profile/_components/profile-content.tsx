@@ -7,33 +7,33 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-} from '@/components/ui/card';
+} from '@/shared/components/ui/card';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@/shared/components/ui/select';
 import {
   Field,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from '@/components/ui/field';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+} from '@/shared/components/ui/field';
+import { Button } from '@/shared/components/ui/button';
+import { Input } from '@/shared/components/ui/input';
 import Image from 'next/image';
 import imgTest from '../../../../../../public/default_user.svg';
 import TimesDialog from './times-dialog';
 import { User } from '../../../../../../prisma/src/generated/prisma/client';
 import { updateProfile } from '../_actions/update-profile';
 import { toast } from 'sonner';
-import { extractPhoneNumber, formatPhone } from '@/utils/phoneFormat';
-import { timeZones } from '@/constants/timezones';
-import PageTitle from '@/layout/page-title';
+import { extractPhoneNumber, formatPhone } from '@/shared/utils/phoneFormat';
+import { timeZones } from '@/shared/constants/timezones';
+import PageTitle from '@/shared/layout/page-title';
 import { User as UserIcon } from 'lucide-react';
-import PageContainer from '@/layout/page-container';
+import PageContainer from '@/shared/layout/page-container';
 
 type ProfileContentProps = {
   user: User;

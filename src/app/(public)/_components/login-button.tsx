@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/ui/button';
 import { Session } from 'next-auth';
 import Link from 'next/link';
 import { handleRegister } from '../_actions/login';

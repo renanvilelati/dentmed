@@ -1,10 +1,10 @@
-import { Card, CardHeader } from '@/components/ui/card';
+import { Card, CardHeader } from '@/shared/components/ui/card';
 import { User } from '../../../../../../prisma/src/generated/prisma/client';
 import { getServices } from '../_data-access/get-services';
 import ServicesList from './services-list';
-import PageTitle from '@/layout/page-title';
+import PageTitle from '@/shared/layout/page-title';
 import { Folder } from 'lucide-react';
-import PageContainer from '@/layout/page-container';
+import PageContainer from '@/shared/layout/page-container';
 
 type ServicesContentProps = {
   user: User;

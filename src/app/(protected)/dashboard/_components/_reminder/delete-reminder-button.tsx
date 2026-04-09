@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/ui/button';
 import { Trash } from 'lucide-react';
 import { deleteReminder } from '../../_actions/delete-reminder';
 import { toast } from 'sonner';

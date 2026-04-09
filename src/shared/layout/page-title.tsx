@@ -1,4 +1,4 @@
-import { CardTitle } from '@/components/ui/card';
+import { CardTitle } from '@/shared/components/ui/card';
 import { ReactNode } from 'react';
 
 const PageTitle = ({ children }: { children: ReactNode }) => {

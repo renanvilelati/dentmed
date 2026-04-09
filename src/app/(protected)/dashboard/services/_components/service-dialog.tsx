@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -8,18 +8,18 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
+} from '@/shared/components/ui/dialog';
 import {
   Field,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from '@/components/ui/field';
-import { Input } from '@/components/ui/input';
+} from '@/shared/components/ui/field';
+import { Input } from '@/shared/components/ui/input';
 import { Controller } from 'react-hook-form';
 import { TServiceSchema, useServiceForm } from './service.form';
-import { Label } from '@/components/ui/label';
-import { convertRealToCents } from '@/utils/convertCurrency';
+import { Label } from '@/shared/components/ui/label';
+import { convertRealToCents } from '@/shared/utils/convertCurrency';
 import { createService } from '../_actions/create-service';
 import { toast } from 'sonner';
 import { updateService } from '../_actions/update-service';

@@ -1,14 +1,14 @@
-import { Button } from '@/components/ui/button';
-import { auth } from '@/lib/auth';
+import { Button } from '@/shared/components/ui/button';
+import { auth } from '@/shared/lib/auth';
 import { Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import ButtonCopy from './_components/button-copy';
 import Reminders from './_components/_reminder/reminders';
 import Appointments from './_components/_appointments/appointments';
-import PageContainer from '@/layout/page-container';
+import PageContainer from '@/shared/layout/page-container';
 import { Suspense } from 'react';
-import { SkeletonCard } from '@/layout/skeleton-card';
+import { SkeletonCard } from '@/shared/layout/skeleton-card';
 
 const DashboardPage = async () => {
   const session = await auth();

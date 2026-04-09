@@ -5,12 +5,12 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
+} from '@/shared/components/ui/sheet';
 import { Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/ui/button';
 import { NavLinks } from './nav-links';
 import { useState } from 'react';
-import { LoginButton } from '../app/(public)/_components/login-button';
+import { LoginButton } from '../../app/(public)/_components/login-button';
 import { Session } from 'next-auth';
 
 type MobileMenuProps = {

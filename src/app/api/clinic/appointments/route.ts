@@ -1,5 +1,5 @@
-import { auth } from '@/lib/auth';
-import { prisma } from '@/lib/prisma';
+import { auth } from '@/shared/lib/auth';
+import { prisma } from '@/shared/lib/prisma';
 import { NextResponse } from 'next/server';
 
 export const GET = auth(async function GET(request) {

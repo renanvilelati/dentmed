@@ -9,11 +9,11 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Button } from '@/components/ui/button';
+} from '@/shared/components/ui/table';
+import { Button } from '@/shared/components/ui/button';
 import { Edit2, Plus, Trash2 } from 'lucide-react';
-import { formatCurrency } from '@/utils/formatCurrency';
-import { formatDuration } from '@/utils/formatDuration';
+import { formatCurrency } from '@/shared/utils/formatCurrency';
+import { formatDuration } from '@/shared/utils/formatDuration';
 import { disableService } from '../_actions/disable-service';
 import { toast } from 'sonner';
 

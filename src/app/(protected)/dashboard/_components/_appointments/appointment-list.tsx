@@ -1,16 +1,21 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/shared/components/ui/card';
+import { ScrollArea } from '@/shared/components/ui/scroll-area';
 import { useSearchParams } from 'next/navigation';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import { Prisma } from '../../../../../../prisma/src/generated/prisma/client';
 import { Eye, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/ui/button';
 import { cancelAppointment } from '../../_actions/cancel-appointment';
 import { toast } from 'sonner';
-import { Dialog, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogTrigger } from '@/shared/components/ui/dialog';
 import { useState } from 'react';
 import DialogAppointment from './dialog-appointment';
 import DateButton from './date-picker-button';

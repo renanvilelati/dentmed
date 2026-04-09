@@ -4,28 +4,28 @@ import {
   Field,
   FieldLabel,
   FieldError,
-} from '@/components/ui/field';
-import { Input } from '@/components/ui/input';
+} from '@/shared/components/ui/field';
+import { Input } from '@/shared/components/ui/input';
 import { Controller } from 'react-hook-form';
 import {
   TAppointmentFormData,
   useAppointmentForm,
 } from '../_hooks/appointment-hook';
-import { Card } from '@/components/ui/card';
-import { formatPhone } from '@/utils/phoneFormat';
+import { Card } from '@/shared/components/ui/card';
+import { formatPhone } from '@/shared/utils/phoneFormat';
 import { DateTimePicker } from './appointment-date-picker';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/ui/button';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@/shared/components/ui/select';
 import { ClinicContentProps } from '../_types/clinic-type';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import AppointmentTimeSlots from './appointment-time-slots';
-import { Label } from '@/components/ui/label';
+import { Label } from '@/shared/components/ui/label';
 import { createNewAppointment } from '../_actions/create-appointment';
 import { toast } from 'sonner';
 
