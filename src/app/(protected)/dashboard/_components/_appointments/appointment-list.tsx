@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 import { Prisma } from '../../../../../../prisma/src/generated/prisma/client';
 import { Eye, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { cancelAppointment } from '../../actions/cancel-appointment';
+import { cancelAppointment } from '../../_actions/cancel-appointment';
 import { toast } from 'sonner';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { useState } from 'react';

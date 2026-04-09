@@ -18,7 +18,7 @@ import { Controller } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Dispatch, SetStateAction, useEffect } from 'react';
-import { createReminder } from '../../actions/create-reminder';
+import { createReminder } from '../../_actions/create-reminder';
 import { toast } from 'sonner';
 
 type TReminderFormProps = {

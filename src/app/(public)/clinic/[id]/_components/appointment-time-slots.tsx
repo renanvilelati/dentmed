@@ -4,7 +4,7 @@ import {
   isSlotInThePast,
   isSlotSequenceAvailable,
   isToday,
-} from '../utils/slots-utils';
+} from '../_utils/slots-utils';
 
 export type TTimeSlot = {
   time: string;

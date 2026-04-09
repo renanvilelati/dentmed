@@ -1,4 +1,4 @@
-import { getReminders } from '../../data-access/get-reminders';
+import { getReminders } from '../../_data-access/get-reminders';
 import ReminderList from './reminder-list';
 
 const Reminders = async ({ userId }: { userId: string }) => {

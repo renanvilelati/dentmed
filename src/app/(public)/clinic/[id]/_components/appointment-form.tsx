@@ -26,7 +26,7 @@ import { ClinicContentProps } from '../_types/clinic-type';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import AppointmentTimeSlots from './appointment-time-slots';
 import { Label } from '@/components/ui/label';
-import { createNewAppointment } from '../actions/create-appointment';
+import { createNewAppointment } from '../_actions/create-appointment';
 import { toast } from 'sonner';
 
 const AppointmentForm = ({ clinic }: ClinicContentProps) => {

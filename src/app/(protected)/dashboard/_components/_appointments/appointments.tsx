@@ -1,4 +1,4 @@
-import { getClinicTimes } from '../../data-access/get-clinic-times';
+import { getClinicTimes } from '../../_data-access/get-clinic-times';
 import AppointmentList from './appointment-list';
 
 const Appointments = async ({ userId }: { userId: string }) => {
