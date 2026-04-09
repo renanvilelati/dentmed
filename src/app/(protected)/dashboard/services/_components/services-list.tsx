@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import ServiceDialog from './service-dialog';
-import { Service } from '../../../../../../prisma/src/generated/prisma/client';
+import { Service } from '@root/prisma/src/generated/prisma/client';
 import {
   Table,
   TableBody,

@@ -2,9 +2,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { NavLinks } from './nav-links';
-import { LoginButton } from '../../app/(public)/_components/login-button';
 import { MobileMenu } from './mobile-menu';
 import { useSession } from 'next-auth/react';
+import { LoginButton } from '@/features/home/components/login-button';
 
 export const Header = () => {
   const { data: session, status } = useSession();

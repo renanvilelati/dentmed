@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/shared/components/ui/card';
-import { Reminder } from '../../../../../../prisma/src/generated/prisma/client';
+import { Reminder } from '@root/prisma/src/generated/prisma/client';
 import { ScrollArea } from '@/shared/components/ui/scroll-area';
 import DeleteReminderButton from './delete-reminder-button';
 import ReminderDialog from './reminder-dialog';

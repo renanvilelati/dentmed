@@ -3,7 +3,7 @@
 import { MapPin } from 'lucide-react';
 import Image from 'next/image';
 import AppointmentForm from './appointment-form';
-import { ClinicContentProps } from '../_types/clinic-type';
+import { ClinicContentProps } from '../types/clinic-type';
 
 const ClinicContent = ({ clinic }: ClinicContentProps) => {
   return (

@@ -1,4 +1,4 @@
-import { Prisma } from '../../../../../../prisma/src/generated/prisma/client';
+import { Prisma } from '@root/prisma/src/generated/prisma/client';
 
 export type UserWithServiceAndSubscription = Prisma.UserGetPayload<{
   include: {

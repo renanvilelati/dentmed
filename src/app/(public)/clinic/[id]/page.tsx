@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
-import getClinicData from './_data-access/get-clinic-data';
-import ClinicContent from './_components/clinic-content';
+import getClinicData from '@/features/clinic/data-access/get-clinic-data';
+import ClinicContent from '@/features/clinic/components/clinic-content';
 
 const ClinicPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;

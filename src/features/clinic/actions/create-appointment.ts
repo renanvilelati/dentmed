@@ -1,22 +1,15 @@
 'use server';
 
 import { prisma } from '@/shared/lib/prisma';
-import z from 'zod';
+import {
+  createAppointmentSchema,
+  TcreateAppointmentSchema,
+} from '../schemas/create-appointment.schema';
 
-const formSchema = z.object({
-  name: z.string().min(1, 'O nome é obrigatório'),
-  email: z.email().min(1, 'O e-mail é obrigatório'),
-  phone: z.string().min(1, 'O telefone é obrigatório'),
-  date: z.date(),
-  serviceId: z.string().min(1, 'O serviço é obrigatório'),
-  time: z.string().min(1, 'O horário é obrigatório'),
-  clinicId: z.string().min(1, 'O ID da clínica é obrigatório'),
-});
-
-type FormSchema = z.infer<typeof formSchema>;
-
-export const createNewAppointment = async (formData: FormSchema) => {
-  const schema = formSchema.safeParse(formData);
+export const createNewAppointment = async (
+  formData: TcreateAppointmentSchema,
+) => {
+  const schema = createAppointmentSchema.safeParse(formData);
 
   if (!schema.success) {
     return {

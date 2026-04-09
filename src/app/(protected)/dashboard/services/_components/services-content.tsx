@@ -1,5 +1,5 @@
 import { Card, CardHeader } from '@/shared/components/ui/card';
-import { User } from '../../../../../../prisma/src/generated/prisma/client';
+import { User } from '@root/prisma/src/generated/prisma/client';
 import { getServices } from '../_data-access/get-services';
 import ServicesList from './services-list';
 import PageTitle from '@/shared/layout/page-title';

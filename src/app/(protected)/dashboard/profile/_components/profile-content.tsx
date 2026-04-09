@@ -26,7 +26,7 @@ import { Input } from '@/shared/components/ui/input';
 import Image from 'next/image';
 import imgTest from '../../../../../../public/default_user.svg';
 import TimesDialog from './times-dialog';
-import { User } from '../../../../../../prisma/src/generated/prisma/client';
+import { User } from '@root/prisma/src/generated/prisma/client';
 import { updateProfile } from '../_actions/update-profile';
 import { toast } from 'sonner';
 import { extractPhoneNumber, formatPhone } from '@/shared/utils/phoneFormat';

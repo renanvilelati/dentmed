@@ -2,7 +2,7 @@ import { Card, CardContent } from '@/shared/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { User } from '../../../../prisma/src/generated/prisma/client';
+import { User } from '@root/prisma/src/generated/prisma/client';
 
 type ProfessionalItemProps = {
   professionals: User[];

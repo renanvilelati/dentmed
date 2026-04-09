@@ -1,4 +1,4 @@
-import { getProfessionals } from '../_data-access/get-professionals';
+import { getProfessionals } from '../data-access/get-professionals';
 import { ProfessionalItem } from './professional-item';
 
 export const ProfessionalsSection = async () => {

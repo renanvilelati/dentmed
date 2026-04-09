@@ -1,7 +1,7 @@
 import { Button } from '@/shared/components/ui/button';
 import { Session } from 'next-auth';
 import Link from 'next/link';
-import { handleRegister } from '../_actions/login';
+import { handleRegister } from '../actions/login';
 import Image from 'next/image';
 
 type LoginBUttonProps = {

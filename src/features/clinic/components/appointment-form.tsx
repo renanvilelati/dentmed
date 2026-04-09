@@ -10,7 +10,7 @@ import { Controller } from 'react-hook-form';
 import {
   TAppointmentFormData,
   useAppointmentForm,
-} from '../_hooks/appointment-hook';
+} from '../hooks/appointment-hook';
 import { Card } from '@/shared/components/ui/card';
 import { formatPhone } from '@/shared/utils/phoneFormat';
 import { DateTimePicker } from './appointment-date-picker';
@@ -22,11 +22,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/shared/components/ui/select';
-import { ClinicContentProps } from '../_types/clinic-type';
+import { ClinicContentProps } from '../types/clinic-type';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import AppointmentTimeSlots from './appointment-time-slots';
 import { Label } from '@/shared/components/ui/label';
-import { createNewAppointment } from '../_actions/create-appointment';
+import { createNewAppointment } from '../actions/create-appointment';
 import { toast } from 'sonner';
 
 const AppointmentForm = ({ clinic }: ClinicContentProps) => {

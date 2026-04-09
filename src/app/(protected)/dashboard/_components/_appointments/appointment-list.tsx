@@ -10,7 +10,7 @@ import { ScrollArea } from '@/shared/components/ui/scroll-area';
 import { useSearchParams } from 'next/navigation';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { format } from 'date-fns';
-import { Prisma } from '../../../../../../prisma/src/generated/prisma/client';
+import { Prisma } from '@root/prisma/src/generated/prisma/client';
 import { Eye, X } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
 import { cancelAppointment } from '../../_actions/cancel-appointment';
