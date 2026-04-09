@@ -52,25 +52,42 @@ A aplicação permite:
 
 ## 🧠 Arquitetura e Padrões
 
-O projeto segue uma arquitetura modular baseada no App Router do Next.js, com separação clara de responsabilidades:
+O projeto segue uma arquitetura modular e orientada a features (feature-based architecture), utilizando o App Router do Next.js como base de composição.
+
+A estrutura foi pensada para alta coesão, baixo acoplamento e escalabilidade, separando claramente responsabilidades por domínio de negócio.
 
 ```
 src/
 │
-├── app/
+├── app/                 # Rotas, layouts e composição via Next.js App Router
 │   ├── (public)/
 │   ├── (protected)/
-│   │   └── dashboard/
-│   │       ├── page.tsx
-│   │       ├── _components/
-│   │       ├── _actions/
-│   │       └── _data-access/
+│   ├── api/
+│   ├── layout.tsx
+│   └── page.tsx
 │
-├── components/     # Componentes globais
-├── hooks/          # Hooks reutilizáveis
-├── utils/          # Funções utilitárias
-├── constants/      # Constantes globais
-├── layout/         # Layouts compartilhados
+├── features/            # Domínios de negócio (feature-first)
+│   ├── clinic/
+│   │   ├── actions/     # Server Actions (mutações)
+│   │   ├── components/  # Componentes da feature
+│   │   ├── data-access/ # Acesso a dados (queries)
+│   │   ├── hooks/       # Hooks específicos
+│   │   ├── schemas/     # Validação (Zod)
+│   │   ├── types/       # Tipagens
+│   │   └── utils/       # Helpers da feature
+│   │
+│   ├── profile/
+│   └── ...
+│
+├── shared/              # Código reutilizável entre features
+│   ├── components/
+│   ├── hooks/
+│   ├── lib/
+│   ├── providers/
+│   ├── styles/
+│   ├── types/
+│   └── utils/
+│
 ```
 
 ### Convenções adotadas
@@ -93,7 +110,6 @@ src/
 
 Implementada com **Auth.js**, suportando:
 
-- Login com email e senha
 - Login social (Google)
 - Sessões seguras
 - Integração com Prisma Adapter
@@ -185,10 +201,10 @@ Garantindo uma experiência consistente em:
 
 ## 🔮 Roadmap (Próximas melhorias)
 
+- [ ] Login com email e senha
 - [ ] Testes unitários
 - [ ] Testes de integração
 - [ ] Testes End-to-End (E2E)
-- [ ] Melhorias de performance
 - [ ] Integração com Stripe (Pagamentos)
 - [ ] Notificações (email/SMS)
 
