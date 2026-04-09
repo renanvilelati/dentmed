@@ -1,51 +1,20 @@
 'use client';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/components/ui/button';
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
+} from '@/shared/components/ui/sheet';
 import clsx from 'clsx';
-import {
-  Banknote,
-  CalendarCheck,
-  ChevronLeft,
-  ChevronRight,
-  Folder,
-  List,
-  LogOut,
-  Settings,
-} from 'lucide-react';
+import { ChevronLeft, ChevronRight, List, LogOut } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import { ReactNode, useState } from 'react';
 import { SidebarLink } from './sidebar-link';
 import Image from 'next/image';
 import { signOut, useSession } from 'next-auth/react';
-
-const LINKS = [
-  {
-    href: '/dashboard',
-    label: 'Dashboard',
-    icon: <CalendarCheck className="h-6 w-6" />,
-  },
-  {
-    href: '/dashboard/services',
-    label: 'Serviços',
-    icon: <Folder className="h-6 w-6" />,
-  },
-  {
-    href: '/dashboard/profile',
-    label: 'Meu perfil',
-    icon: <Settings className="h-6 w-6" />,
-  },
-  {
-    href: '/dashboard/plans',
-    label: 'Planos',
-    icon: <Banknote className="h-6 w-6" />,
-  },
-];
+import { LINKS } from '../_constants/nav-links';
 
 export const AppSidebar = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
@@ -163,7 +132,6 @@ export const AppSidebar = ({ children }: { children: ReactNode }) => {
                   ))}
                 </nav>
                 <Button onClick={handleSignOut}>
-                  {' '}
                   <LogOut /> Sair
                 </Button>
               </div>

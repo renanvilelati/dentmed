@@ -1,10 +1,10 @@
 import clsx from 'clsx';
+import { LucideIcon } from 'lucide-react';
 import Link from 'next/link';
-import { ReactNode } from 'react';
 
 type SidebarLinkProps = {
   href: string;
-  icon: ReactNode;
+  icon: LucideIcon;
   label: string;
   pathname: string;
   isCollapsed: boolean;
@@ -12,7 +12,7 @@ type SidebarLinkProps = {
 
 export const SidebarLink = ({
   href,
-  icon,
+  icon: Icon,
   isCollapsed,
   label,
   pathname,
@@ -28,7 +28,9 @@ export const SidebarLink = ({
           },
         )}
       >
-        <span className="h-6 w-6">{icon}</span>
+        <span>
+          <Icon className="h-6 w-6" />
+        </span>
         {!isCollapsed && <span>{label}</span>}
       </div>
     </Link>
