@@ -40,10 +40,6 @@ const ReminderDialog = ({ isOpen, setIsOpen }: TReminderFormProps) => {
     toast.success(response.message);
   };
 
-  useEffect(() => {
-    form.reset();
-  }, [isOpen, form]);
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <form onSubmit={form.handleSubmit(onSubmit)}>

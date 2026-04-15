@@ -68,8 +68,6 @@ const ServiceDialog = ({
         return;
       }
       toast.success(response.message);
-
-      form.reset();
       handleCloseDialog();
     } catch (error) {
       console.error('Erro no submit do serviço:', error);

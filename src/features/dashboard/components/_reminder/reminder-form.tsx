@@ -12,6 +12,7 @@ export type TReminderSchema = z.infer<typeof reminderSchema>;
 
 export const useReminderForm = () => {
   return useForm<TReminderSchema>({
+    shouldUnregister: true,
     resolver: zodResolver(reminderSchema),
     defaultValues: {
       description: '',

@@ -30,6 +30,7 @@ const emptyValues: TServiceSchema = {
 
 export const useServiceForm = ({ initialValues }: UseServiceFormProps) => {
   const form = useForm<TServiceSchema>({
+    shouldUnregister: true,
     resolver: zodResolver(serviceSchema),
     defaultValues: initialValues || emptyValues,
   });
