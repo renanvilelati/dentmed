@@ -6,8 +6,13 @@
  * @example convertRealToCents(1.300,50) // Retorna 1300050
  */
 export const convertRealToCents = (amount: string) => {
-  const numericPrice = parseFloat(amount.replace(',', '.'));
-  const priceInCents = Math.round(numericPrice * 100);
+  const normalized = amount.replace(/\./g, '').replace(',', '.');
 
-  return priceInCents;
+  const numericPrice = Number(normalized);
+
+  if (Number.isNaN(numericPrice)) {
+    throw new Error('Valor monetário inválido');
+  }
+
+  return Math.round(numericPrice * 100);
 };
