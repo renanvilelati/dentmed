@@ -202,11 +202,10 @@ Garantindo uma experiência consistente em:
 ## 🔮 Roadmap (Próximas melhorias)
 
 - [ ] Login com email e senha
-- [ ] Testes unitários
+- [25%] Testes unitários
 - [ ] Testes de integração
 - [ ] Testes End-to-End (E2E)
 - [ ] Integração com Stripe (Pagamentos)
-- [ ] Notificações (email/SMS)
 
 ---
 
