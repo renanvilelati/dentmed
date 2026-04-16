@@ -10,8 +10,12 @@ export const convertRealToCents = (amount: string) => {
 
   const numericPrice = Number(normalized);
 
-  if (Number.isNaN(numericPrice)) {
+  if (Number.isNaN(numericPrice) || !normalized.trim()) {
     throw new Error('Valor monetário inválido');
+  }
+
+  if (numericPrice < 0) {
+    throw new Error('Valores negativos não são permitidos');
   }
 
   return Math.round(numericPrice * 100);
