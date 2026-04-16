@@ -57,16 +57,7 @@ const TimesDialog = ({ selectedHours, onChange }: TimesDialogProps) => {
         </Button>
       </DialogTrigger>
 
-      <DialogContent
-        style={{
-          padding: '2rem',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-          maxWidth: '700px',
-          width: '100%',
-        }}
-      >
+      <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-sm md:text-base">
             Horários da clínica
@@ -76,10 +67,7 @@ const TimesDialog = ({ selectedHours, onChange }: TimesDialogProps) => {
           </DialogDescription>
         </DialogHeader>
 
-        <div
-          className="gap-2"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}
-        >
+        <div className="grid grid-cols-3 gap-2">
           {hours.map((hour) => (
             <Button
               variant={'outline'}
