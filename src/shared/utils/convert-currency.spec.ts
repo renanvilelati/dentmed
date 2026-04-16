@@ -1,4 +1,4 @@
-import { convertRealToCents } from './convertCurrency';
+import { convertRealToCents } from './convert-currency';
 
 describe('Convert currency to cents (unit)', () => {
   it('should throw error for empty string', () => {

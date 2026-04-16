@@ -12,8 +12,8 @@ import {
 } from '@/shared/components/ui/table';
 import { Button } from '@/shared/components/ui/button';
 import { Edit2, Plus, Trash2 } from 'lucide-react';
-import { formatCurrency } from '@/shared/utils/formatCurrency';
-import { formatDuration } from '@/shared/utils/formatDuration';
+import { formatCurrency } from '@/shared/utils/format-currency';
+import { formatDuration } from '@/shared/utils/format-duration';
 import { disableService } from '../actions/disable-service';
 import { toast } from 'sonner';
 

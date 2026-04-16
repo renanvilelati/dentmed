@@ -19,7 +19,7 @@ import { Input } from '@/shared/components/ui/input';
 import { Controller } from 'react-hook-form';
 import { TServiceSchema, useServiceForm } from './service.form';
 import { Label } from '@/shared/components/ui/label';
-import { convertRealToCents } from '@/shared/utils/convertCurrency';
+import { convertRealToCents } from '@/shared/utils/convert-currency';
 import { createService } from '../actions/create-service';
 import { toast } from 'sonner';
 import { updateService } from '../actions/update-service';

@@ -1,4 +1,4 @@
-import { formatPhone } from './phoneFormat';
+import { formatPhone } from './phone-format';
 
 describe('formatPhone (unit)', () => {
   it('should format 10-digit phone number correctly', () => {

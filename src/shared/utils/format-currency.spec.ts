@@ -1,4 +1,4 @@
-import { formatCurrency } from './formatCurrency';
+import { formatCurrency } from './format-currency';
 
 describe('formatCurrency (unit)', () => {
   it('should format zero correctly', () => {

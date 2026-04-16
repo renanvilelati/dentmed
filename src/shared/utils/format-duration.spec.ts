@@ -1,4 +1,4 @@
-import { formatDuration } from './formatDuration';
+import { formatDuration } from './format-duration';
 
 describe('formatDuration (unit)', () => {
   it('should format zero minutes correctly', () => {

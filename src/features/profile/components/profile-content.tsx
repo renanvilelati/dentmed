@@ -29,7 +29,7 @@ import TimesDialog from './times-dialog';
 import { User } from '@root/prisma/src/generated/prisma/client';
 import { updateProfile } from '../actions/update-profile';
 import { toast } from 'sonner';
-import { extractPhoneNumber, formatPhone } from '@/shared/utils/phoneFormat';
+import { extractPhoneNumber, formatPhone } from '@/shared/utils/phone-format';
 import { timeZones } from '@/shared/constants/timezones';
 import PageTitle from '@/shared/components/protected/page-title';
 import { User as UserIcon } from 'lucide-react';

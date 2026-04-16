@@ -5,8 +5,8 @@ import {
   DialogDescription,
 } from '@/shared/components/ui/dialog';
 import { TAppointmentWIthService } from './appointment-list';
-import { formatCurrency } from '@/shared/utils/formatCurrency';
-import { formatDuration } from '@/shared/utils/formatDuration';
+import { formatCurrency } from '@/shared/utils/format-currency';
+import { formatDuration } from '@/shared/utils/format-duration';
 import { Separator } from '@/shared/components/ui/separator';
 
 type DialogAppointmentProps = {

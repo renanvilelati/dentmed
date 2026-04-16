@@ -12,7 +12,7 @@ import {
   useAppointmentForm,
 } from '../hooks/appointment-hook';
 import { Card } from '@/shared/components/ui/card';
-import { formatPhone } from '@/shared/utils/phoneFormat';
+import { formatPhone } from '@/shared/utils/phone-format';
 import { DateTimePicker } from './appointment-date-picker';
 import { Button } from '@/shared/components/ui/button';
 import {
