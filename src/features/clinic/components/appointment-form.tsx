@@ -64,6 +64,7 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
 
   useEffect(() => {
     if (!selectedDate) {
+      /* eslint-disable react-hooks/set-state-in-effect */
       setBlockedTimes([]);
       return;
     }
@@ -90,17 +91,15 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
     }));
   }, [clinic.times, blockedTimes]);
 
-  useEffect(() => {
-    if (!selectedTime) return;
-
+  const handleSelectTime = (time: string) => {
     const stillAvailable = availableTimeSlots.some(
-      (slot) => slot.time === selectedTime && slot.available,
+      (slot) => slot.time === time && slot.available,
     );
 
-    if (!stillAvailable) {
-      setSelectedTime('');
-    }
-  }, [availableTimeSlots, selectedTime]);
+    if (!stillAvailable) return;
+
+    setSelectedTime(time);
+  };
 
   const onSubmit = async (formData: TAppointmentFormData) => {
     if (!selectedTime) {
@@ -280,7 +279,7 @@ const AppointmentForm = ({ clinic }: ClinicContentProps) => {
                 <p>Nenhum horário disponível</p>
               ) : (
                 <AppointmentTimeSlots
-                  onSelectTime={(time) => setSelectedTime(time)}
+                  onSelectTime={handleSelectTime}
                   selectedTime={selectedTime}
                   availableTimeSlots={availableTimeSlots}
                   blockedTimes={blockedTimes}

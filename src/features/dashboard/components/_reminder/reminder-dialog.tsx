@@ -17,7 +17,7 @@ import {
 import { Controller } from 'react-hook-form';
 import { Button } from '@/shared/components/ui/button';
 import { Textarea } from '@/shared/components/ui/textarea';
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { createReminder } from '../../actions/create-reminder';
 import { toast } from 'sonner';
 

@@ -2,8 +2,7 @@
 
 import { signupSchema, TsignupSchema } from '../schemas/signup.schema';
 import { prisma } from '@/shared/lib/prisma';
-import bcrypt from 'bcrypt'
-import { signIn } from 'next-auth/react';
+import bcrypt from 'bcrypt';
 
 export const createUser = async (formData: TsignupSchema) => {
   try {
@@ -31,7 +30,6 @@ export const createUser = async (formData: TsignupSchema) => {
       success: true,
       message: 'Usuário criado com sucesso',
     };
-
   } catch (error) {
     console.error(error);
     return {

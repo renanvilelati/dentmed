@@ -10,14 +10,9 @@ import { Menu } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
 import { NavLinks } from './nav-links';
 import { useState } from 'react';
-import { Session } from 'next-auth';
 import { AuthenticationDialog } from '@/shared/components/public/authentication-dialog';
 
-type MobileMenuProps = {
-  session: Session | null;
-};
-
-export const MobileMenu = ({ session }: MobileMenuProps) => {
+export const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenAuthentication, setIsOpenAuthentication] = useState(false);
 
