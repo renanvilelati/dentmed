@@ -231,6 +231,7 @@ Garantindo uma experiência consistente em:
 ## 🔮 Roadmap (Próximas melhorias)
 
 - [x] Login com email e senha
+- [x] Login social com Google
 - [x] Testes automatizados com Vitest
 - [x] Cobertura de testes
 - [x] CI com GitHub Actions
