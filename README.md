@@ -170,18 +170,47 @@ http://localhost:3000
 
 ---
 
-## 🧪 Qualidade e Padronização
+## 🧪 Qualidade, Testes e CI
 
-Este projeto utiliza:
+Este projeto adota boas práticas de qualidade de código e validação contínua, garantindo mais segurança na evolução das funcionalidades.
+
+### Qualidade de código
 
 - **Husky** para hooks de commit
 - **lint-staged** para validação de arquivos modificados
 - **Conventional Commits** para padronização de commits
+- **ESLint** para análise estática
+- **Prettier** para formatação automática
 
 Antes de cada commit:
 
-- ESLint é executado
-- Prettier formata o código automaticamente
+- O ESLint é executado
+- O Prettier formata automaticamente os arquivos necessários
+
+### Testes automatizados
+
+Os testes automatizados foram implementados com **Vitest**, permitindo validar regras de negócio e reduzir regressões durante o desenvolvimento.
+
+Scripts disponíveis:
+
+```bash
+pnpm test
+pnpm test:coverage
+```
+
+- `pnpm test`: executa os testes automatizados
+- `pnpm test:coverage`: executa os testes com relatório de cobertura
+
+### Integração Contínua (CI)
+
+O projeto possui uma pipeline de **CI com GitHub Actions**, executada automaticamente em `push` para `main` e `develop`, além de `pull requests`.
+
+A pipeline é composta por dois jobs principais:
+
+- **Lint**: executa `pnpm lint`
+- **Test**: executa `pnpm test:coverage`
+
+Com isso, toda alteração enviada ao repositório passa por verificações automáticas de qualidade e testes antes de seguir no fluxo de desenvolvimento.
 
 ---
 
@@ -201,8 +230,10 @@ Garantindo uma experiência consistente em:
 
 ## 🔮 Roadmap (Próximas melhorias)
 
-- [ ] Login com email e senha
-- [25%] Testes unitários
+- [x] Login com email e senha
+- [x] Testes automatizados com Vitest
+- [x] Cobertura de testes
+- [x] CI com GitHub Actions
 - [ ] Testes de integração
 - [ ] Testes End-to-End (E2E)
 - [ ] Integração com Stripe (Pagamentos)
