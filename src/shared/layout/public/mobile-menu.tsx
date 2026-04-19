@@ -11,7 +11,7 @@ import { Button } from '@/shared/components/ui/button';
 import { NavLinks } from './nav-links';
 import { useState } from 'react';
 import { Session } from 'next-auth';
-import { LoginButton } from '@/features/home/components/login-button';
+import { AuthenticationDialog } from '@/shared/components/public/authentication-dialog';
 
 type MobileMenuProps = {
   session: Session | null;
@@ -19,6 +19,7 @@ type MobileMenuProps = {
 
 export const MobileMenu = ({ session }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenAuthentication, setIsOpenAuthentication] = useState(false);
 
   const onHandleClick = () => {
     setIsOpen(false);
@@ -43,7 +44,11 @@ export const MobileMenu = ({ session }: MobileMenuProps) => {
 
         <nav className="flex flex-col px-4">
           <NavLinks onHandleClick={onHandleClick} />
-          <LoginButton session={session} />
+          <Button onClick={() => setIsOpenAuthentication(true)}>Login</Button>
+          <AuthenticationDialog
+            isOpen={isOpenAuthentication}
+            handleClose={() => setIsOpenAuthentication(false)}
+          />
         </nav>
       </SheetContent>
     </Sheet>

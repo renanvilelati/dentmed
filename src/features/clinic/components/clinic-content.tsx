@@ -16,7 +16,7 @@ const ClinicContent = ({ clinic }: ClinicContentProps) => {
               <Image
                 src={clinic?.image ? clinic.image : '/default_user.svg'}
                 alt="teste"
-                className="object-cover"
+                className="object-cover bg-white"
                 fill
               />
             </div>
