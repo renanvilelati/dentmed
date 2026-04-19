@@ -17,6 +17,7 @@
     "@prisma/client": "^7.5.0",
     "@prisma/extension-accelerate": "^3.0.1",
     "@tanstack/react-query": "^5.95.2",
+    "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.3.1",
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^20.5.0",
     "@tailwindcss/postcss": "^4",
+    "@types/bcrypt": "^6.0.0",
     "@types/node": "^20.19.37",
     "@types/pg": "^8.18.0",
     "@types/react": "^19",
