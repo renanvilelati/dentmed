@@ -30,7 +30,7 @@ export const Header = () => {
             <Button onClick={() => setIsOpen(true)}>Login</Button>
           </nav>
 
-          <MobileMenu session={session} />
+          <MobileMenu />
         </div>
       </header>
 
