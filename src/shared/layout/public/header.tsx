@@ -3,13 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { NavLinks } from './nav-links';
 import { MobileMenu } from './mobile-menu';
-import { useSession } from 'next-auth/react';
 import { Button } from '@/shared/components/ui/button';
 import { AuthenticationDialog } from '@/shared/components/public/authentication-dialog';
 import { useState } from 'react';
 
 export const Header = () => {
-  const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
 
   return (

@@ -32,7 +32,7 @@ export const MobileMenu = () => {
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="z-9999 w-[240px] sm:w-[300px]">
+      <SheetContent side="right" className="z-9999 w-60 sm:w-75">
         <SheetHeader>
           <SheetTitle className="tex font-bold">Menu</SheetTitle>
         </SheetHeader>
