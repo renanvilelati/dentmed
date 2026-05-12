@@ -17,7 +17,7 @@ export const ProfessionalItem = ({ professionals }: ProfessionalItemProps) => {
       <CardContent className="p-0">
         <div className="relative h-48">
           <Image
-            src={item.image ?? '/default_user.svg'}
+            src={item.image ?? '/clinic-default.webp'}
             alt="Foto do médico ou clínica"
             fill
             className="object-cover object-top"

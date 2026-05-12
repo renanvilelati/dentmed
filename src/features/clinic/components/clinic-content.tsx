@@ -14,9 +14,9 @@ const ClinicContent = ({ clinic }: ClinicContentProps) => {
           <article className="flex flex-col items-center">
             <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-white">
               <Image
-                src={clinic?.image ? clinic.image : '/default_user.svg'}
+                src={clinic?.image ? clinic.image : '/clinic-default.webp'}
                 alt="teste"
-                className="object-cover bg-white"
+                className="bg-white object-cover"
                 fill
               />
             </div>

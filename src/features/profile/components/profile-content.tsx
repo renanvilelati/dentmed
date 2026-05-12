@@ -23,8 +23,6 @@ import {
 } from '@/shared/components/ui/field';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
-import Image from 'next/image';
-import imgTest from '@root/public/default_user.svg';
 import TimesDialog from './times-dialog';
 import { User } from '@root/prisma/src/generated/prisma/client';
 import { updateProfile } from '../actions/update-profile';
@@ -34,6 +32,7 @@ import { timeZones } from '@/shared/constants/timezones';
 import PageTitle from '@/shared/components/protected/page-title';
 import { User as UserIcon } from 'lucide-react';
 import PageContainer from '@/shared/layout/protected/page-container';
+import { ProfileAvatar } from './profile-avatar';
 
 type ProfileContentProps = {
   user: User;
@@ -77,17 +76,7 @@ const ProfileContent = ({ user }: ProfileContentProps) => {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="flex justify-center">
-            <div
-              style={{ width: 160, height: 160 }}
-              className="relative overflow-hidden rounded-full bg-gray-200"
-            >
-              <Image
-                src={user?.image || imgTest}
-                alt="Imagem do médico"
-                className="object-cover"
-                fill={true}
-              />
-            </div>
+            <ProfileAvatar userId={user.id} avatarUrl={user.image} />
           </div>
           <form
             id="form-rhf-demo"
