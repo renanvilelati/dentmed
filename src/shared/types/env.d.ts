@@ -18,5 +18,10 @@ declare namespace NodeJS {
 
     STRIPE_SUCCESS_URL: string;
     STRIPE_CANCEL_URL: string;
+
+    CLOUDNARY_NAME: string;
+    CLOUDNARY_KEY: string;
+    CLOUDNARY_SECRET: string;
+    CLOUDINARY_URL: string;
   }
 }
